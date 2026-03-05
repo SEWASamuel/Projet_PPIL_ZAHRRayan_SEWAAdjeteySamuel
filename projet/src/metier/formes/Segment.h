@@ -10,7 +10,7 @@ class Segment: public Forme {
     public:
     /******************** CONSTRUCTEURS ********************/
     Segment();
-    Segment(const int couleur = 0, const Vecteur2D vecteur);
+    Segment(const int couleur, const Vecteur2D vecteur);
 
     /******************** METHODES ********************/
     const Vecteur2D getExtremites() const ;

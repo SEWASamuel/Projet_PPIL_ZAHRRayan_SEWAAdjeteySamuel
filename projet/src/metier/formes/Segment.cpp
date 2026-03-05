@@ -1,11 +1,12 @@
 #include "Segment.h"
 
 Segment::Segment(){
+    this->couleur = COULEUR_NOIR;
     this->extremites = Vecteur2D();
     this->type = "Segment";
 }
 
-Segment::Segment(const int couleur = 0, const Vecteur2D vecteur){
+Segment::Segment(const int couleur, const Vecteur2D vecteur){
     this->couleur = couleur;
     this->extremites = vecteur;
     this->type = "segment";

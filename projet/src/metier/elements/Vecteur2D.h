@@ -2,6 +2,9 @@
  * Représente un couple de coordonnnees, un point du plan, un vecter, in nombre complexe
  */
 
+#ifndef VECTEUR2D
+#define VECTEUR2D
+
 #include <string>
 #include <sstream>
 #include <cmath>
@@ -59,3 +62,5 @@ ostream & operator <<(ostream & os, const Vecteur2D v){
     os << "[" << v.x << "," << v.y << "]";
     return os; 
 }
+
+#endif
