@@ -51,14 +51,28 @@ void Triangle::setPointC(double x, double y) {
     this->pointC = Vecteur2D(x,y);
 }
 
-Forme * Triangle::translation(const Vecteur2D deplacement){
+Triangle::operator string() const {
+    ostringstream & o = getDebutOSS();
+
+    o << this->pointA << ", " << this->pointB << ", " << this->pointC << " ]";
+
+    return o.str();
+}
+
+Forme * Triangle::translation(const Vecteur2D deplacement) const {
     return (Forme *) (new Triangle(this->couleur, this->pointA + deplacement, this->pointB + deplacement, this->pointC + deplacement));
 }
-Forme * Triangle::homothetie(const Vecteur2D centre, const double rapportEchelle){
+Forme * Triangle::homothetie(const Vecteur2D centre, const double rapportEchelle) const {
     // TODO
     return NULL;
 }
-Forme * Triangle::rotation(const Vecteur2D pointInvariant, const double angleRadians){
+Forme * Triangle::rotation(const Vecteur2D pointInvariant, const double angleRadians) const {
     // TODO
     return NULL;
+}
+
+ostream & operator <<(ostream & os, const Triangle t){
+    os << (string) t;
+
+    return os;
 }

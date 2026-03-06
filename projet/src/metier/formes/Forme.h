@@ -33,9 +33,13 @@ class Forme{
     void setCouleur(const int couleur);
     void setType(const string nomType);
 
-    virtual Forme * translation(const Vecteur2D deplacement) = 0;
-    virtual Forme * homothetie(const Vecteur2D centre, const double rapportEchelle) = 0;
-    virtual Forme * rotation(const Vecteur2D pointInvariant, const double angleRadian) = 0;
+    static const string intToCouleur(const int codeCouleur);
+    ostringstream & getDebutOSS() const;
+    virtual operator string() const = 0;
+
+    virtual Forme * translation(const Vecteur2D deplacement) const = 0;
+    virtual Forme * homothetie(const Vecteur2D centre, const double rapportEchelle) const = 0;
+    virtual Forme * rotation(const Vecteur2D pointInvariant, const double angleRadian) const = 0;
 };
 
 #endif

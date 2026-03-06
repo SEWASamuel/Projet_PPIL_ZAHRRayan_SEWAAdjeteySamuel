@@ -23,16 +23,30 @@ void Segment::setExtremites(const double x, const double y){
     this->extremites = Vecteur2D(x,y);
 }
 
-Forme * Segment::translation(const Vecteur2D deplacement){
+Segment::operator string() const {
+    ostringstream & o = getDebutOSS();
+    
+    getDebutOSS() << this->extremites << " ]";
+
+    return o.str();
+}
+
+Forme * Segment::translation(const Vecteur2D deplacement) const {
     return (Forme *) (new Segment(this->couleur, this->extremites + deplacement));
 }
 
-Forme * Segment::homothetie(const Vecteur2D centre, const double rapportEchelle){
+Forme * Segment::homothetie(const Vecteur2D centre, const double rapportEchelle) const {
     // TODO
     return NULL;
 }
 
-Forme * Segment::rotation(const Vecteur2D pointInvariant, const double angleRadians){
+Forme * Segment::rotation(const Vecteur2D pointInvariant, const double angleRadians) const {
     // TODO
     return NULL;
+}
+
+ostream & operator <<(ostream & os, const Segment s){
+    os << (string)s;
+
+    return os;
 }

@@ -33,14 +33,28 @@ void Cercle::setRayon(const double rayon) {
     this->rayon = rayon;
 }
 
-Forme * Cercle::translation(const Vecteur2D deplacement){
+Cercle::operator string() const{
+    ostringstream & o = getDebutOSS();
+
+    o << this->centre << ", " << this->rayon << " ]";
+
+    return o.str();
+}
+
+Forme * Cercle::translation(const Vecteur2D deplacement) const {
     return (Forme *) (new Cercle(this->couleur, this->centre + deplacement, this->rayon));
 }
-Forme * Cercle::homothetie(const Vecteur2D centre, const double rapportEchelle){
+Forme * Cercle::homothetie(const Vecteur2D centre, const double rapportEchelle) const {
     // TODO
     return NULL;
 }
-Forme * Cercle::rotation(const Vecteur2D pointInvariant, const double angleRadians){
+Forme * Cercle::rotation(const Vecteur2D pointInvariant, const double angleRadians) const {
     // TODO
     return NULL;
+}
+
+ostream & operator <<(ostream & os, const Cercle c){
+    os << (string)c;
+
+    return os;
 }

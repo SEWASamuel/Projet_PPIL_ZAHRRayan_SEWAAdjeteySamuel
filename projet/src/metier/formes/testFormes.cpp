@@ -6,7 +6,9 @@
 #include <iostream>
 
 int main(){
-    cout << "test de creation de formes : " << endl;
+    cout << "test de creation de formes : " << endl << endl;
+
+    cout << "creation de segments" << endl;
 
     Vecteur2D a(2,2);
     Vecteur2D b = Vecteur2D(2, 3);
@@ -14,6 +16,8 @@ int main(){
     
     Segment j(COULEUR_BLEU, a);
     Segment k(COULEUR_JAUNE, b);
+
+    cout << "segment j : " << j << endl;
 
     Cercle m(COULEUR_VERT, a, 2);
     Cercle n(COULEUR_CYAN, b, 7);
