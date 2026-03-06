@@ -12,12 +12,13 @@
 #include <ostream>
 #include <string>
 #include "../exceptions/Erreur.h"
+#include "../elements/Vecteur2D.h"
 
 using namespace std;
 
 class Forme{
     protected:
-    int couleur = COULEUR_NOIR;
+    int couleur;
     string type = ""; // cet attribut est à initialiser différemment dans les consrtucteure de chaque forme
 
     public:
@@ -31,6 +32,10 @@ class Forme{
 
     void setCouleur(const int couleur);
     void setType(const string nomType);
+
+    virtual Forme * translation(const Vecteur2D deplacement) = 0;
+    virtual Forme * homothetie(const Vecteur2D centre, const double rapportEchelle) = 0;
+    virtual Forme * rotation(const Vecteur2D pointInvariant, const double angleRadian) = 0;
 };
 
 #endif

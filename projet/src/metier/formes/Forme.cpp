@@ -1,7 +1,9 @@
 #include "Forme.h"
-#include "../exceptions/Erreur.h"
 
-Forme::Forme(){ this->couleur = COULEUR_NOIR; }
+Forme::Forme(){
+    this->couleur = COULEUR_NOIR;
+}
+
 Forme::Forme(int codeCouleur){
     if(codeCouleur < 0 || codeCouleur >= NB_COULEURS) throw Erreur("code couleur invalide");
     this->couleur = couleur;

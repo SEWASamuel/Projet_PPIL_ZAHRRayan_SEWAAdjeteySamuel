@@ -11,7 +11,7 @@ class Cercle: public Forme {
     public:
     /******************** CONSTRUCTEURS ********************/
     Cercle();
-    Cercle(const int couleur = 0, const Vecteur2D vecteur, const double rayon);
+    Cercle(const int couleur, const Vecteur2D vecteur, const double rayon);
 
     /******************** METHODES ********************/
     const Vecteur2D getCentre() const ;
@@ -20,5 +20,9 @@ class Cercle: public Forme {
     void setCentre(const Vecteur2D vecteur);
     void setCentre(const double x, const double y);
     void setRayon(const double rayon);
+
+    virtual Forme * translation(const Vecteur2D deplacement);
+    virtual Forme * homothetie(const Vecteur2D centre, const double rapportEchelle);
+    virtual Forme * rotation(const Vecteur2D pointInvariant, const double angleRadians);
 };
 #endif

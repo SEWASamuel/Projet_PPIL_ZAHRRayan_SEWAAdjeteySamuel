@@ -17,5 +17,9 @@ class Segment: public Forme {
 
     void setExremites(const Vecteur2D vecteur);
     void setExtremites(const double x, const double y);
+
+    virtual Forme * translation(const Vecteur2D deplacement);
+    virtual Forme * homothetie(const Vecteur2D centre, const double rapportEchelle);
+    virtual Forme * rotation(const Vecteur2D pointInvariant, const double angleRadians);
 };
 #endif

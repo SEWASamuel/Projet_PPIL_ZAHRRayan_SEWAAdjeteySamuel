@@ -40,7 +40,7 @@ class Vecteur2D
      * produit scalaire
      */
     double operator *(const Vecteur2D & v) const{
-        return x*v.x + y*v.y;
+        return x*(v.x) + y*(v.y);
     }
 
     const Vecteur2D operator +(const Vecteur2D v) const{
@@ -53,13 +53,14 @@ class Vecteur2D
     }
 
     double norme() const{
-        return sqrt(this->norme());
+        return sqrt(this->norme2());
         // return sqrt(norme2())
     }
 };
 
 ostream & operator <<(ostream & os, const Vecteur2D v){
-    os << "[" << v.x << "," << v.y << "]";
+    //os << "[" << v.x << "," << v.y << "]";
+    os << (string)v;
     return os; 
 }
 

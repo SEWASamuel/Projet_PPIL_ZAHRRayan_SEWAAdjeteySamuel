@@ -1,14 +1,13 @@
 #include "Triangle.h"
 
-Triangle::Triangle(){
+Triangle::Triangle() : Forme() {
     this->type = "Triangle";
     this->pointA = Vecteur2D(0,0);
     this->pointB = Vecteur2D(1,0);
     this->pointC = Vecteur2D(0,1);
 }
 
-Triangle::Triangle(const int couleur = 0, const Vecteur2D a, const Vecteur2D b, const Vecteur2D c){
-    this->couleur = couleur;
+Triangle::Triangle(const int couleur, const Vecteur2D a, const Vecteur2D b, const Vecteur2D c) : Forme(couleur) {
     this->type = "Triangle";
     this->pointA = a;
     this->pointB = b;
@@ -50,4 +49,16 @@ void Triangle::setPointB(double x, double y) {
 }
 void Triangle::setPointC(double x, double y) {
     this->pointC = Vecteur2D(x,y);
+}
+
+Forme * Triangle::translation(const Vecteur2D deplacement){
+    return (Forme *) (new Triangle(this->couleur, this->pointA + deplacement, this->pointB + deplacement, this->pointC + deplacement));
+}
+Forme * Triangle::homothetie(const Vecteur2D centre, const double rapportEchelle){
+    // TODO
+    return NULL;
+}
+Forme * Triangle::rotation(const Vecteur2D pointInvariant, const double angleRadians){
+    // TODO
+    return NULL;
 }

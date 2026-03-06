@@ -12,7 +12,7 @@ class Triangle: public Forme {
     public:
     /******************** CONSTRUCTEURS ********************/
     Triangle();
-    Triangle(const int couleur = 0, const Vecteur2D a, const Vecteur2D b, const Vecteur2D c);
+    Triangle(const int couleur, const Vecteur2D a, const Vecteur2D b, const Vecteur2D c);
 
     /******************** METHODES ********************/
     const Vecteur2D getPointA() const;
@@ -26,5 +26,9 @@ class Triangle: public Forme {
     void setPointA(const double x, const double y);
     void setPointB(const double x, const double y);
     void setPointC(const double x, const double y);
+
+    virtual Forme * translation(const Vecteur2D deplacement);
+    virtual Forme * homothetie(const Vecteur2D centre, const double rapportEchelle);
+    virtual Forme * rotation(const Vecteur2D pointInvariant, const double angleRadians);
 };
 #endif
