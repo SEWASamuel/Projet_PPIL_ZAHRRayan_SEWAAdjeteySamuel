@@ -36,8 +36,17 @@ int main(){
 
     double nV = nV2.norme();
 
-    cout << "on doit trouver 5, |v| = " << nV << endl;
-    
+    cout << "on doit trouver 5, |v| = " << nV << endl << endl;
+
+    cout << "Test de la distance entre 2 vecteurs" << endl;
+    cout << "v1 = " << v1 << endl;
+    cout << "v2 = " << v2 << endl;
+
+    double dist2 = v1.distance2(v2);
+    double dist = v1.distance(v2);
+
+    cout << "Distance carree entre v1 et v2 : " << dist2 << endl;
+    cout << "Distance entre v1 et v2 : " << dist << endl;
 }
 
 #endif

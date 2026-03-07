@@ -47,6 +47,9 @@ class Vecteur2D
         return Vecteur2D(this->x + v.x, this->y + v.y);
     }
 
+    const Vecteur2D operator -(const Vecteur2D v) const{
+        return Vecteur2D(this->x - v.x, this->y - v.y);
+    }
 
     double norme2() const{
         return *this * *this;
@@ -55,6 +58,14 @@ class Vecteur2D
     double norme() const{
         return sqrt(this->norme2());
         // return sqrt(norme2())
+    }
+
+    const double distance2(const Vecteur2D v) const {
+        return abs((v.x - (this->x)) + (v.y - (this->y)));
+    }
+
+    const double distance(const Vecteur2D v) const {
+        return sqrt(distance2(v));
     }
 };
 
