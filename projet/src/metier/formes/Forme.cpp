@@ -32,7 +32,7 @@ void Forme::setType(const string nomType){
     }
 }
 
-const static string intToCouleur(const int codeCouleur){
+const string Forme::intToCouleur(const int codeCouleur){
     switch (codeCouleur)
     {
     case 0:
@@ -65,7 +65,7 @@ const static string intToCouleur(const int codeCouleur){
     }
 }
 
-ostringstream & Forme::getDebutOSS() const{
+ostringstream & Forme::getDebutOSS() const {
     ostringstream o;
     o << "[ "<< Forme::intToCouleur(this->couleur) << ", ";
     return o;

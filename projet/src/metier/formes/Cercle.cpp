@@ -54,7 +54,11 @@ Forme * Cercle::rotation(const Vecteur2D pointInvariant, const double angleRadia
 }
 
 ostream & operator <<(ostream & os, const Cercle c){
-    os << (string)c;
+    ostringstream oss;
+
+    oss << "Cercle : " << (string)c;
+
+    os << oss.str();
 
     return os;
 }

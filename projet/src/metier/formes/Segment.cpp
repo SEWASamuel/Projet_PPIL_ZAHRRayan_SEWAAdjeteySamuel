@@ -46,7 +46,12 @@ Forme * Segment::rotation(const Vecteur2D pointInvariant, const double angleRadi
 }
 
 ostream & operator <<(ostream & os, const Segment s){
-    os << (string)s;
+
+    ostringstream oss;
+    
+    oss << "Segment : " << string(s);
+
+    os << oss.str();
 
     return os;
 }

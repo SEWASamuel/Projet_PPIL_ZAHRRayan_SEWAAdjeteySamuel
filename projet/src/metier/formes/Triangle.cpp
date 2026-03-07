@@ -72,7 +72,11 @@ Forme * Triangle::rotation(const Vecteur2D pointInvariant, const double angleRad
 }
 
 ostream & operator <<(ostream & os, const Triangle t){
-    os << (string) t;
+    ostringstream oss;
+
+    oss << "Triangle : " << (string) t;
+    
+    os << oss.str();
 
     return os;
 }
