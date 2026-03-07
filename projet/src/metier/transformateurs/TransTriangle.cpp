@@ -18,12 +18,18 @@ Forme * TransTriangle::translation(Forme * forme, Transformation * transformatio
     return new Triangle(t->getCouleur(), t->getPointA() + transAux->getDeplacement(), t->getPointB() + transAux->getDeplacement(), t->getPointC() + transAux->getDeplacement());
 }
 
-Forme * homothetie(Forme * forme, Transformation * transformation){
-    // TODO
-    return NULL;
+Forme * TransTriangle::homothetie(Forme * forme, Transformation * transformation){
+    Triangle * t = (Triangle *) forme;
+    TransformationHomothetie * transAux = (TransformationHomothetie *) transformation;
+
+    Vecteur2D nvPointA = transAux->getPointCentre() + (t->getPointA() * transAux->getRapportEchelle());
+    Vecteur2D nvPointB = transAux->getPointCentre() + (t->getPointB() * transAux->getRapportEchelle());
+    Vecteur2D nvPointC = transAux->getPointCentre() + (t->getPointC() * transAux->getRapportEchelle());
+
+    return new Triangle(t->getCouleur(), nvPointA, nvPointB, nvPointC);
 }
 
-Forme * rotation(Forme * forme, Transformation * transformation){
+Forme * TransTriangle::rotation(Forme * forme, Transformation * transformation){
     // TODO
     return NULL;
 }

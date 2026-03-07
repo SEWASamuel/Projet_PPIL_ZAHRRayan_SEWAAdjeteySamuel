@@ -67,6 +67,11 @@ class Vecteur2D
     const double distance(const Vecteur2D v) const {
         return sqrt(distance2(v));
     }
+
+    // cette fonction sert à calculer la distance de Manhattan et non la distance euclidienne
+    const Vecteur2D distanceM(const Vecteur2D v) const {
+        return Vecteur2D(v.x - this->x, v.y - this->y);
+    }
 };
 
 ostream & operator <<(ostream & os, const Vecteur2D v){
