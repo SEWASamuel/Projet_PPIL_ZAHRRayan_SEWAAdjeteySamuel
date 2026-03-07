@@ -32,5 +32,15 @@ Forme * TransSegment::homothetie(Forme * forme, Transformation * transformation)
     return new Segment(seg->getCouleur(), Matrice22(nvPointA, nvPointB));
 }
 Forme * TransSegment::rotation(Forme * forme, Transformation * transformation){
-    // TODO
+    Segment * seg = (Segment *) forme;
+    TransformationRotation * transAux = (TransformationRotation *) transformation;
+
+    Matrice22 rotation = Matrice22::creeRotation(transAux->getPointRadian());
+    Vecteur2D pointA = seg->getExtremites().ligneHaut;
+    Vecteur2D pointB = seg->getExtremites().ligneBas;
+
+    Vecteur2D nvPointA = rotation * pointA;
+    Vecteur2D nvPointB = rotation * pointB;
+
+    return new Segment(seg->getCouleur(), Matrice22(nvPointA, nvPointB));
 }

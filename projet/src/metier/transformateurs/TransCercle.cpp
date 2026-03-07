@@ -29,6 +29,13 @@ Forme * TransCercle::homothetie(Forme * forme, Transformation * transformation) 
     return new Cercle(c->getCouleur(), nVcentre, nvRayon);
 }
 Forme * TransCercle::rotation(Forme * forme, Transformation * transformation) {
-    return NULL;
-    // TODO
+    Cercle * c = (Cercle *) forme;
+    TransformationRotation * transAux = (TransformationRotation *) transformation;
+
+    Matrice22 rotation = Matrice22::creeRotation(transAux->getPointRadian());
+    Vecteur2D centre = c->getCentre();
+
+    Vecteur2D nvCentre = rotation * centre;
+
+    return new Cercle(c->getCouleur(), nvCentre, c->getRayon());
 }

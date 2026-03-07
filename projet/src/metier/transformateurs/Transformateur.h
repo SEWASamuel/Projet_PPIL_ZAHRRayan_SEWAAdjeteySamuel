@@ -11,6 +11,7 @@
 #include "transformations/TransformationHomothetie.h"
 #include "transformations/TransformationRotation.h"
 
+#include "../elements/Matrice22.h"
 #include "../formes/Forme.h"
 
 class Transformateur : public OpTrans{
