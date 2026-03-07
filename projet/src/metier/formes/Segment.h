@@ -3,20 +3,21 @@
 
 #include "Forme.h"
 #include "../elements/Vecteur2D.h"
+#include "../elements/Matrice22.h" 
 
 class Segment: public Forme {
-    Vecteur2D extremites;
+    Matrice22 extremites;
 
     public:
     /******************** CONSTRUCTEURS ********************/
     Segment();
-    Segment(const int couleur, const Vecteur2D vecteur);
+    Segment(const int couleur, const Matrice22 matrice);
 
     /******************** METHODES ********************/
-    const Vecteur2D getExtremites() const ;
+    const Matrice22 getExtremites() const ;
 
-    void setExremites(const Vecteur2D vecteur);
-    void setExtremites(const double x, const double y);
+    void setExremites(const Matrice22 vecteur);
+    void setExtremites(const Vecteur2D a, const Vecteur2D b);
 
     virtual operator string() const;
 

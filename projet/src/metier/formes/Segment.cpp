@@ -1,26 +1,26 @@
 #include "Segment.h"
 
 Segment::Segment(): Forme(){
-    this->extremites = Vecteur2D();
+    this->extremites = Matrice22(Vecteur2D(), Vecteur2D());
     this->type = "Segment";
 }
 
-Segment::Segment(const int couleur, const Vecteur2D vecteur): Forme(couleur){
-    this->extremites = vecteur;
+Segment::Segment(const int couleur, const Matrice22 matrice): Forme(couleur){
+    this->extremites = matrice;
     this->type = "segment";
 }
 
-const Vecteur2D Segment::getExtremites() const {
+const Matrice22 Segment::getExtremites() const {
     return this->extremites;
 }
 
 
-void Segment::setExremites(const Vecteur2D vecteur){
+void Segment::setExremites(const Matrice22 vecteur){
     this->extremites = vecteur;
 }
 
-void Segment::setExtremites(const double x, const double y){
-    this->extremites = Vecteur2D(x,y);
+void Segment::setExtremites(const Vecteur2D a, const Vecteur2D b){
+    this->extremites = Matrice22(a,b);
 }
 
 Segment::operator string() const {
@@ -32,11 +32,13 @@ Segment::operator string() const {
 }
 
 Forme * Segment::translation(const Vecteur2D deplacement) const {
-    return (Forme *) (new Segment(this->couleur, this->extremites + deplacement));
+    Matrice22 aux = this->getExtremites();
+    return (Forme *) (new Segment(this->couleur, aux + deplacement));
 }
 
 Forme * Segment::homothetie(const Vecteur2D centre, const double rapportEchelle) const {
     // TODO
+
     return NULL;
 }
 

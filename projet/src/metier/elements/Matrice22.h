@@ -27,8 +27,10 @@ class Matrice22{
     operator std::string() const{
         std::ostringstream o;
 
-        o << (string)ligneHaut << std::endl;
-        o << (string)ligneBas;
+        // o << (string)ligneHaut << std::endl;
+        // o << (string)ligneBas;
+
+        o << (string)ligneHaut << ", " << (string)ligneBas << endl;
 
         return o.str();
     }    
@@ -37,6 +39,10 @@ class Matrice22{
 
     const Vecteur2D operator *(const Vecteur2D & v){
         return Vecteur2D(ligneHaut*v, ligneBas*v);
+    }
+
+    const Matrice22 operator +(const Vecteur2D & v){
+        return Matrice22(this->ligneHaut + v, this->ligneBas + v);
     }
 };
 

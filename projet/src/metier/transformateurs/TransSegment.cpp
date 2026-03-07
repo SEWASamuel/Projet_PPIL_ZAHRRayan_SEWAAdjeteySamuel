@@ -15,7 +15,8 @@ Forme * TransSegment::translation(Forme * forme, Transformation * transformation
     Segment * seg = (Segment *) forme;
     TransformationTranslation * transAux = (TransformationTranslation *) transformation;
 
-    return new Segment(seg->getCouleur(), Vecteur2D(seg->getExtremites() + transAux->getDeplacement()));
+    Matrice22 aux = seg->getExtremites();
+    return new Segment(seg->getCouleur(), Matrice22(aux + transAux->getDeplacement()));
 }
 
 Forme * TransSegment::homothetie(Forme * forme, Transformation * transformation){
