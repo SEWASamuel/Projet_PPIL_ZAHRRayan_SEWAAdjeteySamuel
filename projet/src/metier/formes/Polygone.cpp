@@ -13,26 +13,36 @@ const vector<Vecteur2D> Polygone::getPoints() const {
 }
 
 const Vecteur2D Polygone::getPoint(const int pos) const {
-    if(pos < 0 || pos > this->points.size()) throw Erreur("indice de vecteur de points invalide");
+    if(pos < 0 || pos > this->points.size()) throw Erreur("indice de vecteur de points invalide (getPoint)");
     return this->points.at(pos);
+}
+
+void Polygone::setPoint(const int pos, const Vecteur2D point){
+    if(pos < 0 || pos < this->points.size()) throw Erreur("indice de vecteur de points invalide (setPoint)");
+    this->points[pos] = point;
 }
 
 Polygone::operator string() const {
     ostringstream o;
 
-    vector<Vecteur2D>::iterator it;
+    o << getDebutOSS();
 
-    for(it = this->points.begin(), )
-    
-    o << getDebutOSS() << this->pointA << ", " << this->pointB << ", " << this->pointC << " ]";
+    int taille = this->points.size();
+
+    for(int i=0 ; i<taille ; i++){
+        o << this->points.at(i);
+        if(i < taille-1) o << ", ";
+    }
+
+    o << " ]";
 
     return o.str();
 }
 
-ostream & operator <<(ostream & os, const Triangle t){
+ostream & operator <<(ostream & os, const Polygone p){
     ostringstream oss;
 
-    oss << "Triangle : " << (string) t;
+    oss << "Polygone : " << (string) t;
     
     os << oss.str();
 
