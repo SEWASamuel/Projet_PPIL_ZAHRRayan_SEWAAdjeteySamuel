@@ -22,15 +22,22 @@ class Forme{
 
     public:
     /******************** CONSTRUCTEURS ********************/
+    
     Forme();
     Forme(int codeCouleur);
+    //destructeur virtuel pour assurer la destruction correcte des objets dérivés
+    virtual ~Forme() = default;
 
     /******************** METHODES ********************/
-    const int getCouleur() const;
-    const string getType() const;
+    int getCouleur() const;
+    string getType() const;
 
-    void setCouleur(const int couleur);
-    void setType(const string nomType);
+    void setCouleur(int couleur);
+    void setType( string nomType);
+
+    virtual void afficher() const;    
+
+    virtual double calculerAire() const = 0; // méthode virtuelle pure pour calculer l'aire de la forme la methode est à chaque fois differente 
 };
 
 #endif

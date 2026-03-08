@@ -1,0 +1,81 @@
+#include "Forme_comp.h"
+#include <iostream>
+#include "../exceptions/Erreur.h"
+
+using namespace std;
+
+/******************** CONSTRUCTEURS ********************/
+
+Forme_comp::Forme_comp() : Forme() {
+    this->type = "groupe";
+}
+
+Forme_comp::Forme_comp(int couleur) : Forme(couleur) {
+    this->type = "groupe";
+}
+
+/******************** DESTRUCTEUR ********************/
+
+Forme_comp::~Forme_comp() {
+    // libération de la mémoire des formes stockées
+    for (Forme* f : formes) {
+        delete f;
+    }
+}
+
+/******************** GESTION DES FORMES ********************/
+
+void Forme_comp::addForme(Forme* forme) {
+    if (forme == nullptr) {
+        throw Erreur("forme nulle");
+    }
+
+    formes.push_back(forme);
+}
+
+void Forme_comp::delForme(int index) {
+
+    if (index < 0 || index >= (int)formes.size()) {
+        throw Erreur("index invalide");
+    }
+
+    delete formes[index];
+    formes.erase(formes.begin() + index);
+}
+
+Forme* Forme_comp::getForme(int index) const {
+
+    if (index < 0 || index >= (int)formes.size()) {
+        throw Erreur("index invalide");
+    }
+
+    return formes[index];
+}
+
+int Forme_comp::getNbFormes() const {
+    return (int)formes.size();
+}
+
+/******************** AFFICHAGE ********************/
+
+void Forme_comp::afficher() const {
+
+    cout << "Forme composee (" << formes.size() << " formes)" << endl;
+
+    for (Forme* f : formes) {
+        f->afficher();
+    }
+}
+
+/******************** CALCUL AIRE ********************/
+
+double Forme_comp::calculerAire() const {
+
+    double aireTotal = 0.0;
+
+    for (Forme* f : formes) {
+        aireTotal += f->calculerAire();
+    }
+
+    return aireTotal;
+}

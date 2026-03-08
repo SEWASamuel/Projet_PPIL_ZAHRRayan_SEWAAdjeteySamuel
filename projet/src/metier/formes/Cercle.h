@@ -1,24 +1,36 @@
-#ifndef CERCLE
-#define CERCLE
+#ifndef CERCLE_H
+#define CERCLE_H
 
 #include "Forme.h"
 #include "../elements/Vecteur2D.h"
 
-class Cercle: public Forme {
+class Cercle : public Forme {
+
+private:
+
     Vecteur2D centre;
     double rayon;
 
-    public:
+public:
+
     /******************** CONSTRUCTEURS ********************/
+
     Cercle();
-    Cercle(const int couleur = 0, const Vecteur2D vecteur, const double rayon);
+    Cercle(const Vecteur2D& centre, double rayon, int couleur);
 
     /******************** METHODES ********************/
-    const Vecteur2D getCentre() const ;
-    const double getRayon() const ;
 
-    void setCentre(const Vecteur2D vecteur);
-    void setCentre(const double x, const double y);
-    void setRayon(const double rayon);
+    Vecteur2D getCentre() const;
+    double getRayon() const;
+
+    void setCentre(const Vecteur2D& centre);
+    void setCentre(double x, double y);
+
+    void setRayon(double rayon);
+
+    void afficher() const override;
+
+    double calculerAire() const override;
 };
+
 #endif

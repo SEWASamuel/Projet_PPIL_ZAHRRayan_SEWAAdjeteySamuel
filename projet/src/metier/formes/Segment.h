@@ -1,21 +1,35 @@
-#ifndef SEGMENT
-#define SEGMENT
+#ifndef SEGMENT_H
+#define SEGMENT_H
 
 #include "Forme.h"
 #include "../elements/Vecteur2D.h"
 
-class Segment: public Forme {
-    Vecteur2D extremites;
+class Segment : public Forme {
 
-    public:
+private:
+
+    // Un segment est défini par deux points
+    Vecteur2D A;
+    Vecteur2D B;
+
+public:
+
     /******************** CONSTRUCTEURS ********************/
+
     Segment();
-    Segment(const int couleur = 0, const Vecteur2D vecteur);
+    Segment(const Vecteur2D& A, const Vecteur2D& B, int couleur);
 
     /******************** METHODES ********************/
-    const Vecteur2D getExtremites() const ;
 
-    void setExremites(const Vecteur2D vecteur);
-    void setExtremites(const double x, const double y);
+    Vecteur2D getA() const;
+    Vecteur2D getB() const;
+
+    void setA(const Vecteur2D& A);
+    void setB(const Vecteur2D& B);
+
+    void afficher() const override;
+
+    double calculerAire() const override;
 };
+
 #endif
