@@ -20,7 +20,7 @@ int main(){
 
     cout << "v2 (mat * v1) = " << v2 << endl << endl;
 
-    double alfa = 3.14/4; // remplacer 3.14 avec PI
+    double alfa = M_PI/4;
 
     Matrice22 matR = Matrice22::creeRotation(alfa);
 
