@@ -36,10 +36,6 @@ class Forme{
     static const char * intToCouleur(const int couleur);
     const string getDebutOSS() const;
     virtual operator string() const = 0;
-
-    virtual Forme * translation(const Vecteur2D deplacement) const = 0;
-    virtual Forme * homothetie(const Vecteur2D centre, const double rapportEchelle) const = 0;
-    virtual Forme * rotation(const Vecteur2D pointInvariant, const double angleRadian) const = 0;
 };
 ostream & operator <<(ostream os, const Forme * f);
 

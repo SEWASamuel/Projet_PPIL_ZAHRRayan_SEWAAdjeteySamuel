@@ -12,11 +12,10 @@ class TransformationRotation : public Transformation{
 
     public:
     /******************** CONSTRUCTEURS ********************/
-    TransformationRotation(const Vecteur2D point, const double radian){
+    TransformationRotation(const Vecteur2D point, const double radian) : Transformation(ROTATION) {
         if(radian < 0 || radian > 2){
             throw Erreur("Radian invalide");
         }
-        this->numTransformation = ROTATION;
         this->pointInvariant = point;
         this->angleRadian = radian;
     }
@@ -24,6 +23,6 @@ class TransformationRotation : public Transformation{
     /******************** METHODES ********************/
     const Vecteur2D getPointInvariant() const { return this->pointInvariant; }
     const double getPointRadian() const { return this->angleRadian; }
-    virtual Forme & transforme();
+    //virtual Forme & transforme();
 };
 #endif

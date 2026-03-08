@@ -31,22 +31,6 @@ Segment::operator string() const {
     return o.str();
 }
 
-Forme * Segment::translation(const Vecteur2D deplacement) const {
-    Matrice22 aux = this->getExtremites();
-    return (Forme *) (new Segment(this->couleur, aux + deplacement));
-}
-
-Forme * Segment::homothetie(const Vecteur2D centre, const double rapportEchelle) const {
-    // TODO
-
-    return NULL;
-}
-
-Forme * Segment::rotation(const Vecteur2D pointInvariant, const double angleRadians) const {
-    // TODO
-    return NULL;
-}
-
 ostream & operator <<(ostream & os, const Segment s){
 
     ostringstream oss;

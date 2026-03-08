@@ -16,7 +16,9 @@ int main(){
 
     cout << "v1 = " << v1 << endl << endl;
 
-    cout << "mat = " << endl << mat << endl << endl;
+    cout << "mat = " << mat << endl << endl;
+
+    cout << "mat + v1 : " << mat+v1 << endl;
 
     cout << "v2 (mat * v1) = " << v2 << endl << endl;
 

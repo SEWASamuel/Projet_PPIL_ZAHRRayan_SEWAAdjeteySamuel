@@ -4,7 +4,6 @@
 #include "Transformateur.h"
 
 class TransPolygone : public Transformateur {
-    static string type; // TODO : code répétitif
 
     public:
     /******************** CONSTRUCTEURS ********************/
@@ -14,10 +13,8 @@ class TransPolygone : public Transformateur {
     /******************** METHODES ********************/
     //virtual Forme & transforme(Forme & forme);
 
-    virtual const string getType() const;
-
-    virtual Forme * translation(Forme * forme, Transformation * transformation);
-    virtual Forme * homothetie(Forme * forme, Transformation * transformation);
-    virtual Forme * rotation(Forme * forme, Transformation * transformation);
+    Forme * translation(Forme * forme, const Transformation * transformation) const ;
+    Forme * homothetie(Forme * forme, const Transformation * transformation) const ;
+    Forme * rotation(Forme * forme, const Transformation * transformation) const ;
 };
 #endif

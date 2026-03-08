@@ -22,10 +22,6 @@ class Cercle: public Forme {
     void setRayon(const double rayon);
 
     virtual operator string() const;
-
-    virtual Forme * translation(const Vecteur2D deplacement) const;
-    virtual Forme * homothetie(const Vecteur2D centre, const double rapportEchelle) const;
-    virtual Forme * rotation(const Vecteur2D pointInvariant, const double angleRadians) const;
 };
 
 ostream & operator <<(ostream & os, const Cercle c);

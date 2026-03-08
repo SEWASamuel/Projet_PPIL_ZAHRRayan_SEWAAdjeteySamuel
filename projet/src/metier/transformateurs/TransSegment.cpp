@@ -1,25 +1,20 @@
 #include "TransSegment.h"
 
-TransSegment::TransSegment(){
-    if(this->type != "Segment"){
-        this->type = "Segment";
-    }
-    this->suivant = NULL;
-}
+TransSegment::TransSegment() : Transformateur(NULL, "segment") {}
 
-TransSegment::TransSegment(Transformateur * suivant) : TransSegment(){
-    this->suivant = suivant;
-}
+TransSegment::TransSegment(Transformateur * suivant) : Transformateur(suivant, "segment") {}
 
-Forme * TransSegment::translation(Forme * forme, Transformation * transformation){
+Forme * TransSegment::translation(Forme * forme, const Transformation * transformation) const {
     Segment * seg = (Segment *) forme;
     TransformationTranslation * transAux = (TransformationTranslation *) transformation;
 
     Matrice22 aux = seg->getExtremites();
-    return new Segment(seg->getCouleur(), Matrice22(aux + transAux->getDeplacement()));
+    Matrice22 nvM = aux + transAux->getDeplacement();
+
+    return new Segment(seg->getCouleur(), nvM);
 }
 
-Forme * TransSegment::homothetie(Forme * forme, Transformation * transformation){
+Forme * TransSegment::homothetie(Forme * forme, const Transformation * transformation) const {
     Segment * seg = (Segment *) forme;
     TransformationHomothetie * transAux = (TransformationHomothetie *) transformation;
 
@@ -31,7 +26,7 @@ Forme * TransSegment::homothetie(Forme * forme, Transformation * transformation)
     
     return new Segment(seg->getCouleur(), Matrice22(nvPointA, nvPointB));
 }
-Forme * TransSegment::rotation(Forme * forme, Transformation * transformation){
+Forme * TransSegment::rotation(Forme * forme, const Transformation * transformation) const {
     Segment * seg = (Segment *) forme;
     TransformationRotation * transAux = (TransformationRotation *) transformation;
 

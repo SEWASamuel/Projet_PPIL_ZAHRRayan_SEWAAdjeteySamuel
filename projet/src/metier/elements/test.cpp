@@ -13,6 +13,10 @@ int main(){
 
     cout << "Vecteur v = " <<  v << endl << endl;
 
+    cout << "test de l'addition" << endl;
+
+    cout << "v + v : " << v+v << endl << endl;
+
     cout << "test du produit scalaire" << endl;
     Vecteur2D v1(3,2), v2(-2,3);
 

@@ -3,11 +3,11 @@
 Cercle::Cercle() : Forme() {
     this->centre = Vecteur2D();
     this->rayon = 1;
-    this->type = "Cercle";
+    this->type = "cercle";
 }
 
 Cercle::Cercle(const int couleur, const Vecteur2D vecteur, const double rayon) : Forme(couleur) {
-    this->type = "Cercle";
+    this->type = "cercle";
     this->centre = vecteur;
     this->rayon = rayon;
 }
@@ -39,18 +39,6 @@ Cercle::operator string() const{
     o << getDebutOSS() << this->centre << ", " << this->rayon << " ]";
 
     return o.str();
-}
-
-Forme * Cercle::translation(const Vecteur2D deplacement) const {
-    return (Forme *) (new Cercle(this->couleur, this->centre + deplacement, this->rayon));
-}
-Forme * Cercle::homothetie(const Vecteur2D centre, const double rapportEchelle) const {
-    // TODO
-    return NULL;
-}
-Forme * Cercle::rotation(const Vecteur2D pointInvariant, const double angleRadians) const {
-    // TODO
-    return NULL;
 }
 
 ostream & operator <<(ostream & os, const Cercle c){

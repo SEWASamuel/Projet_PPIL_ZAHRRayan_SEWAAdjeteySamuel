@@ -1,14 +1,14 @@
 #include "Triangle.h"
 
 Triangle::Triangle() : Forme() {
-    this->type = "Triangle";
+    this->type = "triangle";
     this->pointA = Vecteur2D(0,0);
     this->pointB = Vecteur2D(1,0);
     this->pointC = Vecteur2D(0,1);
 }
 
 Triangle::Triangle(const int couleur, const Vecteur2D a, const Vecteur2D b, const Vecteur2D c) : Forme(couleur) {
-    this->type = "Triangle";
+    this->type = "triangle";
     this->pointA = a;
     this->pointB = b;
     this->pointC = c;
@@ -57,18 +57,6 @@ Triangle::operator string() const {
     o << getDebutOSS() << this->pointA << ", " << this->pointB << ", " << this->pointC << " ]";
 
     return o.str();
-}
-
-Forme * Triangle::translation(const Vecteur2D deplacement) const {
-    return (Forme *) (new Triangle(this->couleur, this->pointA + deplacement, this->pointB + deplacement, this->pointC + deplacement));
-}
-Forme * Triangle::homothetie(const Vecteur2D centre, const double rapportEchelle) const {
-    // TODO
-    return NULL;
-}
-Forme * Triangle::rotation(const Vecteur2D pointInvariant, const double angleRadians) const {
-    // TODO
-    return NULL;
 }
 
 ostream & operator <<(ostream & os, const Triangle t){

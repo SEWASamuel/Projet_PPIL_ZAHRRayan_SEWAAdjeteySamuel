@@ -1,23 +1,16 @@
 #include "TransCercle.h"
 
-TransCercle::TransCercle(){
-    if(this->type != "Cercle"){
-        this->type = "Cercle";
-    }
-    this->suivant = NULL;
-}
+TransCercle::TransCercle() : Transformateur(NULL, "cercle") {}
 
-TransCercle::TransCercle(Transformateur * suivant) : TransCercle(){
-    this->suivant = suivant;
-}
+TransCercle::TransCercle(Transformateur * suivant) : Transformateur(suivant, "cercle") {}
 
-Forme * TransCercle::translation(Forme * forme, Transformation * transformation) {
+Forme * TransCercle::translation(Forme * forme, const Transformation * transformation) const {
     Cercle * c = (Cercle *) forme;
     TransformationTranslation * transAux = (TransformationTranslation *) transformation;
 
     return new Cercle(c->getCouleur(), c->getCentre() + transAux->getDeplacement(), c->getRayon());
 }
-Forme * TransCercle::homothetie(Forme * forme, Transformation * transformation) {
+Forme * TransCercle::homothetie(Forme * forme, const Transformation * transformation) const {
     Cercle * c = (Cercle *) forme;
     TransformationHomothetie * transAux = (TransformationHomothetie *) transformation;
 
@@ -28,7 +21,7 @@ Forme * TransCercle::homothetie(Forme * forme, Transformation * transformation) 
     
     return new Cercle(c->getCouleur(), nVcentre, nvRayon);
 }
-Forme * TransCercle::rotation(Forme * forme, Transformation * transformation) {
+Forme * TransCercle::rotation(Forme * forme, const Transformation * transformation) const {
     Cercle * c = (Cercle *) forme;
     TransformationRotation * transAux = (TransformationRotation *) transformation;
 
