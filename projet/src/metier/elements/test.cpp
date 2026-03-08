@@ -1,49 +1,52 @@
-#include "Vecteur2D.h"
+#ifndef VECTEUR2D_H
+#define VECTEUR2D_H
+
 #include <string>
 #include <iostream>
+#include <sstream>
+#include "Vecteur2D.h"
 
 using namespace std;
 
-int main()
-{
-    Vecteur2D A(2,3);
-    Vecteur2D u(5,-1);
+int main(){
+    Vecteur2D v = Vecteur2D(1,1);
 
-    cout << "A.x = " << A.x << ", A.y = " << A.y << endl;
-    cout << "A = " << (string)A << endl;
-    cout << "A = " << A << endl;
+    cout << "Vecteur v = " <<  v << endl << endl;
 
-    Vecteur2D B;
-    B = A + u;
+    cout << "test du produit scalaire" << endl;
+    Vecteur2D v1(3,2), v2(-2,3);
 
-    cout << "A = " << A << endl;
-    cout << "u = " << u << endl;
-    cout << "B = " << B << endl;
+    v1 = v1 * 5; cout << "V1 = : " << v1 << endl;
+    v2 = v2 * -3; cout << "V2 = : " << v2 << endl;
 
-    cout << "Produit vecteur * double" << endl;
-    Vecteur2D v1(3,2);
-    Vecteur2D v2;
+    double a = v1*v2; // a = v1.operator*(v2)
 
-    v2 = v1 * 3;
+    cout << "a = " << a << endl << endl;
 
+
+    cout << "Test de la norme d'un vecteur" << endl;
+
+    Vecteur2D nV2(4,3);
+
+    cout << "Vecteur nV2 = " << nV2 << endl;
+
+    double nVd = nV2.norme2();
+
+    cout << "On doit trouver 25, |v|^2 = " << nVd << endl;
+
+    double nV = nV2.norme();
+
+    cout << "on doit trouver 5, |v| = " << nV << endl << endl;
+
+    cout << "Test de la distance entre 2 vecteurs" << endl;
     cout << "v1 = " << v1 << endl;
     cout << "v2 = " << v2 << endl;
 
-    cout << "Test du produit scalaire" << endl;
-    Vecteur2D p1(3,2);
-    Vecteur2D p2(-2,3);
+    double dist2 = v1.distance2(v2);
+    double dist = v1.distance(v2);
 
-    double a = p1 * p2;
-    cout << "a = " << a << endl;
-
-    cout << "Test de la norme d'un vecteur" << endl;
-    Vecteur2D v(4,3);
-
-    double nV2 = v.norme2();
-    cout << "on doit trouver 25, |v|^2 = " << nV2 << endl;
-
-    double nV = v.norme();
-    cout << "on doit trouver 5, |v| = " << nV << endl;
-
-    return 0;
+    cout << "Distance carree entre v1 et v2 : " << dist2 << endl;
+    cout << "Distance entre v1 et v2 : " << dist << endl;
 }
+
+#endif

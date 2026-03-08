@@ -1,59 +1,59 @@
 #include "Segment.h"
-#include <iostream>
 
-using namespace std;
+Segment::Segment(): Forme(){
+    this->extremites = Matrice22(Vecteur2D(), Vecteur2D());
+    this->type = "Segment";
+}
 
-/******************** CONSTRUCTEURS ********************/
-
-// Constructeur par défaut
-// Crée un segment [ (0,0) ; (0,0) ] avec la couleur par défaut
-Segment::Segment() : Forme(), A(Vecteur2D()), B(Vecteur2D()) {
+Segment::Segment(const int couleur, const Matrice22 matrice): Forme(couleur){
+    this->extremites = matrice;
     this->type = "segment";
 }
 
-// Constructeur avec paramètres
-// Crée un segment défini par deux points A et B et une couleur
-Segment::Segment(const Vecteur2D& A, const Vecteur2D& B, int couleur)
-    : Forme(couleur), A(A), B(B) {
-    this->type = "segment";
+const Matrice22 Segment::getExtremites() const {
+    return this->extremites;
 }
 
-/******************** METHODES D'ACCES ********************/
 
-// Retourne le premier point du segment
-Vecteur2D Segment::getA() const {
-    return this->A;
+void Segment::setExremites(const Matrice22 vecteur){
+    this->extremites = vecteur;
 }
 
-// Retourne le second point du segment
-Vecteur2D Segment::getB() const {
-    return this->B;
+void Segment::setExtremites(const Vecteur2D a, const Vecteur2D b){
+    this->extremites = Matrice22(a,b);
 }
 
-/******************** METHODES DE MODIFICATION ********************/
+Segment::operator string() const {
+    ostringstream o;
+    
+    o << getDebutOSS() << this->extremites << " ]";
 
-// Modifie le premier point du segment
-void Segment::setA(const Vecteur2D& A) {
-    this->A = A;
+    return o.str();
 }
 
-// Modifie le second point du segment
-void Segment::setB(const Vecteur2D& B) {
-    this->B = B;
+Forme * Segment::translation(const Vecteur2D deplacement) const {
+    Matrice22 aux = this->getExtremites();
+    return (Forme *) (new Segment(this->couleur, aux + deplacement));
 }
 
-/******************** AFFICHAGE ********************/
+Forme * Segment::homothetie(const Vecteur2D centre, const double rapportEchelle) const {
+    // TODO
 
-// Affiche les informations du segment
-void Segment::afficher() const {
-    cout << "Segment de " << this->A
-         << " a " << this->B
-         << ", couleur : " << this->couleur << endl;
+    return NULL;
 }
 
-/******************** CALCUL DE L'AIRE ********************/
+Forme * Segment::rotation(const Vecteur2D pointInvariant, const double angleRadians) const {
+    // TODO
+    return NULL;
+}
 
-// Un segment n'a pas d'aire
-double Segment::calculerAire() const {
-    return 0.0;
+ostream & operator <<(ostream & os, const Segment s){
+
+    ostringstream oss;
+    
+    oss << "Segment : " << string(s);
+
+    os << oss.str();
+
+    return os;
 }

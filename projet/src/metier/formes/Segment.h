@@ -1,35 +1,30 @@
-#ifndef SEGMENT_H
-#define SEGMENT_H
+#ifndef SEGMENT
+#define SEGMENT
 
 #include "Forme.h"
 #include "../elements/Vecteur2D.h"
+#include "../elements/Matrice22.h" 
 
-class Segment : public Forme {
+class Segment: public Forme {
+    Matrice22 extremites;
 
-private:
-
-    // Un segment est défini par deux points
-    Vecteur2D A;
-    Vecteur2D B;
-
-public:
-
+    public:
     /******************** CONSTRUCTEURS ********************/
-
     Segment();
-    Segment(const Vecteur2D& A, const Vecteur2D& B, int couleur);
+    Segment(const int couleur, const Matrice22 matrice);
 
     /******************** METHODES ********************/
+    const Matrice22 getExtremites() const ;
 
-    Vecteur2D getA() const;
-    Vecteur2D getB() const;
+    void setExremites(const Matrice22 vecteur);
+    void setExtremites(const Vecteur2D a, const Vecteur2D b);
 
-    void setA(const Vecteur2D& A);
-    void setB(const Vecteur2D& B);
+    virtual operator string() const;
 
-    void afficher() const override;
-
-    double calculerAire() const override;
+    virtual Forme * translation(const Vecteur2D deplacement) const;
+    virtual Forme * homothetie(const Vecteur2D centre, const double rapportEchelle) const;
+    virtual Forme * rotation(const Vecteur2D pointInvariant, const double angleRadians) const;
 };
 
+ostream & operator <<(ostream & os, const Segment s);
 #endif

@@ -1,40 +1,38 @@
-#ifndef TRIANGLE_H
-#define TRIANGLE_H
+#ifndef TRIANGLE
+#define TRIANGLE
 
 #include "Forme.h"
 #include "../elements/Vecteur2D.h"
 
-class Triangle : public Forme {
-
-private:
-
+class Triangle: public Forme {
     Vecteur2D pointA;
     Vecteur2D pointB;
     Vecteur2D pointC;
 
-public:
-
+    public:
     /******************** CONSTRUCTEURS ********************/
-
     Triangle();
-    Triangle(const Vecteur2D& a, const Vecteur2D& b, const Vecteur2D& c, int couleur);
+    Triangle(const int couleur, const Vecteur2D a, const Vecteur2D b, const Vecteur2D c);
 
     /******************** METHODES ********************/
+    const Vecteur2D getPointA() const;
+    const Vecteur2D getPointB() const;
+    const Vecteur2D getPointC() const;
 
-    Vecteur2D getPointA() const;
-    Vecteur2D getPointB() const;
-    Vecteur2D getPointC() const;
+    void setPointA(const Vecteur2D vecteur);
+    void setPointB(const Vecteur2D vecteur);
+    void setPointC(const Vecteur2D vecteur);
 
-    void setPointA(const Vecteur2D& vecteur);
-    void setPointB(const Vecteur2D& vecteur);
-    void setPointC(const Vecteur2D& vecteur);
+    void setPointA(const double x, const double y);
+    void setPointB(const double x, const double y);
+    void setPointC(const double x, const double y);
 
-    void setPointA(double x, double y);
-    void setPointB(double x, double y);
-    void setPointC(double x, double y);
+    virtual operator string() const;
 
-    void afficher() const override;
-    double calculerAire() const override;
+    virtual Forme * translation(const Vecteur2D deplacement) const;
+    virtual Forme * homothetie(const Vecteur2D centre, const double rapportEchelle) const;
+    virtual Forme * rotation(const Vecteur2D pointInvariant, const double angleRadians) const;
 };
 
+ostream & operator <<(ostream & os, const Triangle t);
 #endif
