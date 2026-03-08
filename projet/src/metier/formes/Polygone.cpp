@@ -42,7 +42,7 @@ Polygone::operator string() const {
 ostream & operator <<(ostream & os, const Polygone p){
     ostringstream oss;
 
-    oss << "Polygone : " << (string) t;
+    oss << "Polygone : " << (string) p;
     
     os << oss.str();
 
