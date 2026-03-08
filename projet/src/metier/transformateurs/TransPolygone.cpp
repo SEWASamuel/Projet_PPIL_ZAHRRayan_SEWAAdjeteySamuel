@@ -16,12 +16,12 @@ Forme * TransPolygone::translation(Forme * forme, Transformation * transformatio
     return NULL;
 }
 
-Forme * TransPolygone(Forme * forme, Transformation * transformation){
+Forme * TransPolygone::homothetie(Forme * forme, Transformation * transformation){
     // TODO
     return NULL;
 }
 
-Forme * TransPolygone(Forme * forme, Transformation * transformation){
+Forme * TransPolygone::rotation(Forme * forme, Transformation * transformation){
     // TODO
     return NULL;
 }
