@@ -1,57 +1,52 @@
 #include "Cercle.h"
-#include "../exceptions/Erreur.h"
-#include <iostream>
 
-// Valeur de pi pour le calcul de l'aire du cercle
- const double PI = 3.14159265358979323846;
-
-/******************** CONSTRUCTEURS ********************/
-// Constructeur par défaut 
-Cercle::Cercle() : Forme(), centre(Vecteur2D()), rayon(1.0) {
-    this->type = "cercle";
-}
-// Constructeur avec paramètres
-Cercle::Cercle(const Vecteur2D& centre, double rayon, int couleur)
-    : Forme(couleur), centre(centre), rayon(rayon) {
-
-    if (rayon <= 0) {
-        throw Erreur("rayon invalide");
-    }
-
+Cercle::Cercle() : Forme() {
+    this->centre = Vecteur2D();
+    this->rayon = 1;
     this->type = "cercle";
 }
 
-/******************** METHODES ********************/
-
-Vecteur2D Cercle::getCentre() const {
-    return this->centre;
-}
-
-double Cercle::getRayon() const {
-    return this->rayon;
-}
-
-void Cercle::setCentre(const Vecteur2D& centre) {
-    this->centre = centre;
-}
-
-void Cercle::setCentre(double x, double y) {
-    this->centre = Vecteur2D(x, y);
-}
-
-void Cercle::setRayon(double rayon) {
-    if (rayon <= 0) {
-        throw Erreur("rayon invalide");
-    }
+Cercle::Cercle(const int couleur, const Vecteur2D vecteur, const double rayon) : Forme(couleur) {
+    this->type = "cercle";
+    this->centre = vecteur;
     this->rayon = rayon;
 }
 
-void Cercle::afficher() const {
-    std::cout << "Cercle de centre " << this->centre
-              << ", rayon " << this->rayon
-              << ", couleur " << this->couleur << std::endl;
+const Vecteur2D Cercle::getCentre() const {
+    return this->centre;
 }
 
-double Cercle::calculerAire() const {
-    return PI * this->rayon * this->rayon;
+const double Cercle::getRayon() const {
+    return this->rayon;
+}
+
+
+void Cercle::setCentre(const Vecteur2D vecteur) {
+    this->centre = vecteur;
+}
+
+void Cercle::setCentre(const double x, const double y) {
+    this->centre = Vecteur2D(x,y);
+}
+
+void Cercle::setRayon(const double rayon) {
+    this->rayon = rayon;
+}
+
+Cercle::operator string() const{
+    ostringstream o;
+    
+    o << getDebutOSS() << this->centre << ", " << this->rayon << " ]";
+
+    return o.str();
+}
+
+ostream & operator <<(ostream & os, const Cercle c){
+    ostringstream oss;
+
+    oss << "Cercle : " << (string)c;
+
+    os << oss.str();
+
+    return os;
 }

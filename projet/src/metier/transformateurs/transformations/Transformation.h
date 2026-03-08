@@ -7,12 +7,13 @@
 
 
 class Transformation{
-    protected:
     int numTransformation;
     public:
 
+    Transformation(const int numTransformation): numTransformation(numTransformation) {}
+
     /******************** METHODES ********************/
     const int getNumTransformation() const { return this->numTransformation; }
-    virtual Forme & transforme();
+    //virtual Forme & transforme();
 };
 #endif

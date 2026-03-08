@@ -1,81 +1,70 @@
 #include "Triangle.h"
-#include <iostream>
-#include <cmath>
 
-using namespace std;
-
-/******************** CONSTRUCTEURS ********************/
-
-Triangle::Triangle() : Forme(), pointA(0,0), pointB(1,0), pointC(0,1) {
+Triangle::Triangle() : Forme() {
     this->type = "triangle";
+    this->pointA = Vecteur2D(0,0);
+    this->pointB = Vecteur2D(1,0);
+    this->pointC = Vecteur2D(0,1);
 }
 
-Triangle::Triangle(const Vecteur2D& a, const Vecteur2D& b, const Vecteur2D& c, int couleur)
-    : Forme(couleur), pointA(a), pointB(b), pointC(c) {
+Triangle::Triangle(const int couleur, const Vecteur2D a, const Vecteur2D b, const Vecteur2D c) : Forme(couleur) {
     this->type = "triangle";
+    this->pointA = a;
+    this->pointB = b;
+    this->pointC = c;
 }
 
-/******************** METHODES D'ACCES ********************/
-
-Vecteur2D Triangle::getPointA() const {
+const Vecteur2D Triangle::getPointA() const {
     return this->pointA;
 }
 
-Vecteur2D Triangle::getPointB() const {
+const Vecteur2D Triangle::getPointB() const {
     return this->pointB;
 }
 
-Vecteur2D Triangle::getPointC() const {
+const Vecteur2D Triangle::getPointC() const {
     return this->pointC;
 }
 
-/******************** METHODES DE MODIFICATION ********************/
 
-void Triangle::setPointA(const Vecteur2D& vecteur) {
+void Triangle::setPointA(const Vecteur2D vecteur) {
     this->pointA = vecteur;
 }
 
-void Triangle::setPointB(const Vecteur2D& vecteur) {
+void Triangle::setPointB(const Vecteur2D vecteur) {
     this->pointB = vecteur;
 }
 
-void Triangle::setPointC(const Vecteur2D& vecteur) {
+void Triangle::setPointC(const Vecteur2D vecteur) {
     this->pointC = vecteur;
 }
 
+
 void Triangle::setPointA(double x, double y) {
-    this->pointA = Vecteur2D(x, y);
+    this->pointA = Vecteur2D(x,y);
 }
 
 void Triangle::setPointB(double x, double y) {
-    this->pointB = Vecteur2D(x, y);
+    this->pointB = Vecteur2D(x,y);
 }
-
 void Triangle::setPointC(double x, double y) {
-    this->pointC = Vecteur2D(x, y);
+    this->pointC = Vecteur2D(x,y);
 }
 
-/******************** AFFICHAGE ********************/
+Triangle::operator string() const {
+    ostringstream o; 
+    
+    o << getDebutOSS() << this->pointA << ", " << this->pointB << ", " << this->pointC << " ]";
 
-void Triangle::afficher() const {
-    cout << "Triangle de sommets "
-         << this->pointA << ", "
-         << this->pointB << ", "
-         << this->pointC
-         << ", couleur : " << this->couleur << endl;
+    return o.str();
 }
 
-/******************** CALCUL DE L'AIRE ********************/
+ostream & operator <<(ostream & os, const Triangle t){
+    ostringstream oss;
 
-double Triangle::calculerAire() const {
-    double x1 = pointA.x;
-    double y1 = pointA.y;
-    double x2 = pointB.x;
-    double y2 = pointB.y;
-    double x3 = pointC.x;
-    double y3 = pointC.y;
+    oss << "Triangle : " << (string) t;
+    
+    os << oss.str();
 
-    double det = (x2 - x1) * (y3 - y1) - (y2 - y1) * (x3 - x1);
-
-    return 0.5 * abs(det);
+    return os;
 }

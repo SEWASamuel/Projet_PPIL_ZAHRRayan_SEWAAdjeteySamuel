@@ -1,40 +1,64 @@
+#include "Forme.cpp"
+#include "Segment.cpp"
+#include "Cercle.cpp"
+#include "Triangle.cpp"
+#include "../exceptions/Erreur.cpp"
+
 #include <iostream>
 
-#include "Segment.h"
-#include "Cercle.h"
-#include "Triangle.h"
-
-using namespace std;
-
 int main(){
+    cout << "test de creation de formes : " << endl << endl;
 
-    cout << "Test de creation de formes" << endl;
+    cout << "creation de segments..." << endl;
 
-    // Points
-    Vecteur2D A(0,0);
-    Vecteur2D B(4,0);
-    Vecteur2D C(0,3);
+    Vecteur2D a(2,2);
+    Vecteur2D b = Vecteur2D(2, 3);
+    Vecteur2D c = Vecteur2D(7, 8);
 
-    // Segment
-    Segment s(A,B,1);
+    try {
+        Segment j(COULEUR_BLEU, Matrice22(a, b));
+        Segment k(COULEUR_JAUNE, Matrice22(b, a));
 
-    // Cercle
-    Cercle c(Vecteur2D(1,1), 2.0, 2);
+        cout << "Segments crees !" << endl;
 
-    // Triangle
-    Triangle t(A,B,C,3);
+        cout << "segment j : " << j << endl;
+        cout << "segment k : " << k << endl << endl;
 
-    cout << endl << "Affichage des formes :" << endl;
+    } catch (Erreur &tmp) {
+        cout << tmp << endl;
+    }
+    
+    cout << "creation de cercles..." << endl;
 
-    s.afficher();
-    c.afficher();
-    t.afficher();
+    try {
+        Cercle m(COULEUR_VERT, a, 2);
+        Cercle n(COULEUR_CYAN, b, 7);
 
-    cout << endl;
+        cout << "Cercles crees !" << endl;
 
-    cout << "Aire du segment : " << s.calculerAire() << endl;
-    cout << "Aire du cercle : " << c.calculerAire() << endl;
-    cout << "Aire du triangle : " << t.calculerAire() << endl;
+        cout << "Cercle m : " << m << endl;
+        cout << "Cercle n : " << n << endl << endl;
+        
+    } catch (Erreur &tmp){
+        cout << tmp << endl;
+    }
+
+    cout << "creation de triangles..." << endl;
+
+    try {
+        Triangle p(COULEUR_ROUGE, a, b, c);
+        Triangle q(COULEUR_NOIR, Vecteur2D(6, 10), Vecteur2D(9, 16), Vecteur2D(5, 3));
+
+        cout << "Triangles crees !" << endl;
+
+        cout << "Triangle p : " << p << endl;
+        cout << "Triangle q : " << q << endl << endl;
+
+    } catch (Erreur &tmp) {
+        cout << tmp << endl;
+    }
+
+    cout << "test fini !" << endl;
 
     return 0;
 }

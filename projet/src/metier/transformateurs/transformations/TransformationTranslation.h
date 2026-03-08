@@ -10,13 +10,12 @@ class TransformationTranslation : public Transformation{
 
     public:
     /******************** CONSTRUCTEURS ********************/
-    TransformationTranslation(const Vecteur2D depl){
-        this->numTransformation = TRANSLATION;
+    TransformationTranslation(const Vecteur2D depl) : Transformation(TRANSLATION) {
         this->deplacement = depl;
     }
 
     /******************** METHODES ********************/
-    const Vecteur2D getDeplacement() const { return this-> deplacement; }
-    virtual Forme & transforme();
+    const Vecteur2D getDeplacement() const { return deplacement; }
+    //virtual Forme & transforme();
 };
 #endif

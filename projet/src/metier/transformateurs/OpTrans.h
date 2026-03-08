@@ -7,11 +7,12 @@
 #define OP_TRANS
 
 #include "../formes/Forme.h"
+#include "transformations/Transformation.h"
 
 class OpTrans {
     public:
     /******************** METHODES ********************/
-    virtual Forme & transforme(Forme & forme);
+    virtual Forme * transforme(Forme & forme, const Transformation transformation) const = 0;
 };
 
 #endif

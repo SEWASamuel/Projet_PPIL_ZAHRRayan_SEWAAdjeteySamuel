@@ -12,32 +12,31 @@
 #include <ostream>
 #include <string>
 #include "../exceptions/Erreur.h"
+#include "../elements/Vecteur2D.h"
 
 using namespace std;
 
 class Forme{
     protected:
-    int couleur = COULEUR_NOIR;
-    string type = ""; // cet attribut est à initialiser différemment dans les consrtucteure de chaque forme
+    int couleur;
+    string type = "Forme"; // cet attribut est à initialiser différemment dans les consrtucteure de chaque forme
 
     public:
     /******************** CONSTRUCTEURS ********************/
-    
     Forme();
     Forme(int codeCouleur);
-    //destructeur virtuel pour assurer la destruction correcte des objets dérivés
-    virtual ~Forme() = default;
 
     /******************** METHODES ********************/
-    int getCouleur() const;
-    string getType() const;
+    const int getCouleur() const;
+    const string getType() const;
 
-    void setCouleur(int couleur);
-    void setType( string nomType);
+    void setCouleur(const int couleur);
+    void setType(const string nomType);
 
-    virtual void afficher() const;    
-
-    virtual double calculerAire() const = 0; // méthode virtuelle pure pour calculer l'aire de la forme la methode est à chaque fois differente 
+    static const char * intToCouleur(const int couleur);
+    const string getDebutOSS() const;
+    virtual operator string() const = 0;
 };
+ostream & operator <<(ostream os, const Forme * f);
 
 #endif
