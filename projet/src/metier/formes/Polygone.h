@@ -11,11 +11,9 @@ class Polygone : public Forme {
     vector<Vecteur2D> points;
 
     public:
-    /******************** CONSTRUCTEURS ********************/
     Polygone();
     Polygone(const int couleur, const vector<Vecteur2D> points);
 
-    /******************** METHODES ********************/
     const vector<Vecteur2D> getPoints() const;
     const Vecteur2D getPoint(const unsigned int pos) const;
 
@@ -24,9 +22,8 @@ class Polygone : public Forme {
     operator string() const;
     void dessiner() const;
     double calculerAire() const;
-
-    //const string accepte(VisiteurForme * v) const;
 };
 
-ostream & operator <<(ostream & os, const Polygone p);
+ostream & operator <<(ostream & os, const Polygone & p);
+
 #endif

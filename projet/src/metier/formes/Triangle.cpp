@@ -3,6 +3,7 @@
  * @brief Definition des fonctions de la classe Triangle
  */
 #include "Triangle.h"
+#include "../reseau/ClientTCP.h"
 #include <iostream>
 #include <sstream>
 #include <cmath>
@@ -60,7 +61,7 @@ void Triangle::setPointC(double x, double y) {
 }
 
 Triangle::operator string() const {
-    ostringstream o; 
+    ostringstream o;
     o << getDebutOSS() << this->pointA << ", " << this->pointB << ", " << this->pointC << " ]";
     return o.str();
 }
@@ -73,22 +74,28 @@ double Triangle::calculerAire() const {
     double x3 = pointC.x;
     double y3 = pointC.y;
 
-    return std::abs((x1*(y2-y3) + x2*(y3-y1) + x3*(y1-y2)) / 2.0);
+    return abs((x1*(y2-y3) + x2*(y3-y1) + x3*(y1-y2)) / 2.0);
 }
 
 void Triangle::dessiner() const {
-    cout << "TRIANGLE "
-     << pointA.x << " " << pointA.y << " "
-     << pointB.x << " " << pointB.y << " "
-     << pointC.x << " " << pointC.y << " "
-     << Forme::intToCouleur(this->couleur) << endl;
+    ostringstream oss;
+    oss << "TRIANGLE "
+        << pointA.x << " " << pointA.y << " "
+        << pointB.x << " " << pointB.y << " "
+        << pointC.x << " " << pointC.y << " "
+        << this->couleur;
+
+    string commande = oss.str();
+
+    cout << commande << endl;
+    ClientTCP::envoyerAuServeur(commande, "127.0.0.1", 9111);
 }
 
 // const string Triangle::accepte(VisiteurForme * v) const {
 //     return v->visite(this);
 // }
 
-ostream & operator <<(ostream & os, const Triangle t) {
+ostream & operator <<(ostream & os, const Triangle & t) {
     os << "Triangle : " << (string)t;
     return os;
 }

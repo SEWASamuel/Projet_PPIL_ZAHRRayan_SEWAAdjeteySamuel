@@ -16,11 +16,9 @@ class Triangle : public Forme {
     Vecteur2D pointC;
 
     public:
-    /******************** CONSTRUCTEURS ********************/
     Triangle();
     Triangle(const int couleur, const Vecteur2D a, const Vecteur2D b, const Vecteur2D c);
 
-    /******************** METHODES ********************/
     const Vecteur2D getPointA() const;
     const Vecteur2D getPointB() const;
     const Vecteur2D getPointC() const;
@@ -36,10 +34,8 @@ class Triangle : public Forme {
     operator string() const;
     void dessiner() const;
     double calculerAire() const;
-
-    //const string accepte(VisiteurForme * v) const;
 };
 
-ostream & operator <<(ostream & os, const Triangle t);
+ostream & operator <<(ostream & os, const Triangle & t);
 
 #endif

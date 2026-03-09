@@ -3,6 +3,7 @@
  * @brief Definition des fonctions de la classe polygone
  */
 #include "Polygone.h"
+#include "../reseau/ClientTCP.h"
 #include <iostream>
 #include <sstream>
 #include <cmath>
@@ -22,27 +23,34 @@ const vector<Vecteur2D> Polygone::getPoints() const {
 }
 
 const Vecteur2D Polygone::getPoint(const unsigned int pos) const {
-    if (pos < 0 || pos >= (int)this->points.size()) {
+    if (pos >= this->points.size()) {
         throw Erreur("indice de vecteur de points invalide (getPoint)");
     }
     return this->points.at(pos);
 }
 
 void Polygone::setPoint(const unsigned int pos, const Vecteur2D point) {
-    if (pos < 0 || pos >= (int)this->points.size()) {
+    if (pos >= this->points.size()) {
         throw Erreur("indice de vecteur de points invalide (setPoint)");
     }
     this->points[pos] = point;
 }
 
 void Polygone::dessiner() const {
-    cout << "POLYGONE " << points.size() << " ";
+    ostringstream oss;
+
+    oss << "POLYGONE " << points.size() << " ";
 
     for (int i = 0; i < (int)points.size(); i++) {
-        cout << points[i].x << " " << points[i].y << " ";
+        oss << points[i].x << " " << points[i].y << " ";
     }
 
-   cout << Forme::intToCouleur(this->couleur) << endl;
+    oss << this->couleur;
+
+    string commande = oss.str();
+
+    cout << commande << endl;
+    ClientTCP::envoyerAuServeur(commande, "127.0.0.1", 9111);
 }
 
 double Polygone::calculerAire() const {
@@ -81,7 +89,7 @@ Polygone::operator string() const {
     return o.str();
 }
 
-ostream & operator <<(ostream & os, const Polygone p) {
+ostream & operator <<(ostream & os, const Polygone & p) {
     os << "Polygone : " << (string)p;
     return os;
 }
