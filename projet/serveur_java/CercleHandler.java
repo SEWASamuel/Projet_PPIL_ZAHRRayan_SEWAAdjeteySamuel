@@ -10,29 +10,37 @@ public class CercleHandler extends Handler {
 
     @Override
     public boolean traiter(String commande) {
-        // ici on va vérifier si la commande concerne un cercle, par exemple si elle
-        // commence par "CERCLE"
+        // on vérifie si la commande concerne un cercle
         if (commande.startsWith("CERCLE")) {
             System.out.println("CercleHandler : commande reconnue");
             System.out.println("Commande cercle = " + commande);
-            // découper la commande
-            String[] parties = commande.split(" ");
 
-            // récupérer les paramètres
-            double x = Double.parseDouble(parties[1]);
-            double y = Double.parseDouble(parties[2]);
-            double rayon = Double.parseDouble(parties[3]);
-            String couleur = convertirCouleur(parties[4]);
+            try {
+                // découper la commande proprement
+                String[] parties = commande.trim().split("\\s+");
 
-            // afficher les informations
-            System.out.println("Centre X : " + x);
-            System.out.println("Centre Y : " + y);
-            System.out.println("Rayon : " + rayon);
-            System.out.println("Couleur : " + couleur);
+                // récupérer les paramètres
+                int x = (int) Double.parseDouble(parties[1]);
+                int y = (int) Double.parseDouble(parties[2]);
+                int rayon = (int) Double.parseDouble(parties[3]);
+                int couleur = Integer.parseInt(parties[4]);
 
-            // ici plus tard on dessinera le cercle
+                // afficher les informations
+                System.out.println("Centre X : " + x);
+                System.out.println("Centre Y : " + y);
+                System.out.println("Rayon : " + rayon);
+                System.out.println("Couleur : " + couleur);
 
-            return true; // indiquer que la commande a été traitée
+                // dessiner le cercle
+                Dessin.dessinerCercle(x, y, rayon, couleur);
+
+                return true; // indiquer que la commande a été traitée
+
+            } catch (Exception e) {
+                System.out.println("Erreur dans CercleHandler : " + e.getMessage());
+                return false;
+            }
+
         } else {
             // sinon, passer la commande au handler suivant dans la chaîne
             if (suivant != null) {
@@ -40,9 +48,8 @@ public class CercleHandler extends Handler {
             } else {
                 // fin de la chaîne, aucun handler n'a pu traiter la commande
                 System.out.println("Aucun handler disponible pour traiter la commande : " + commande);
-                return false; // indiquer que la commande n'a pas été traitée
+                return false;
             }
         }
     }
-
 }
