@@ -16,14 +16,19 @@ public class PolygoneHandler extends Handler {
             try {
                 String[] parties = commande.split(" ");
 
+                if (parties.length < 4) {
+                    System.out.println("Commande polygone invalide");
+                    return false;
+                }
+
                 int nbPoints = Integer.parseInt(parties[1]);
                 System.out.println("Nombre de points : " + nbPoints);
 
-                // taille attendue de la commande :
-                // 2 éléments fixes : "POLYGONE" + nbPoints
-                // puis 2 coordonnées (x,y) pour chaque point → 2 * nbPoints
-                // puis 1 élément pour la couleur
-                // donc : 2 + (2 * nbPoints) + 1
+                if (nbPoints < 3) {
+                    System.out.println("Commande polygone invalide : un polygone doit avoir au moins 3 points");
+                    return false;
+                }
+
                 int tailleAttendue = 2 + (2 * nbPoints) + 1;
 
                 if (parties.length != tailleAttendue) {
@@ -38,11 +43,10 @@ public class PolygoneHandler extends Handler {
                     double y = Double.parseDouble(parties[index + 1]);
 
                     System.out.println("Point " + (i + 1) + " : (" + x + ", " + y + ")");
-
                     index += 2;
                 }
 
-                String couleur = parties[index];
+                String couleur = convertirCouleur(parties[index]);
                 System.out.println("Couleur : " + couleur);
 
                 return true;

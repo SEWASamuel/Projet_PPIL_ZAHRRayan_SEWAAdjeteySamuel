@@ -13,6 +13,24 @@ public abstract class Handler {
         this.suivant = suivant;
     }
 
+    protected String convertirCouleur(String couleur) {
+
+        if (couleur.equalsIgnoreCase("Rouge"))
+            return "RED";
+        if (couleur.equalsIgnoreCase("Bleu"))
+            return "BLUE";
+        if (couleur.equalsIgnoreCase("Vert"))
+            return "GREEN";
+        if (couleur.equalsIgnoreCase("Jaune"))
+            return "YELLOW";
+        if (couleur.equalsIgnoreCase("Noir"))
+            return "BLACK";
+        if (couleur.equalsIgnoreCase("Cyan"))
+            return "CYAN";
+
+        return couleur;
+    }
+
     // methode qui essaye de traiter la commande si elle correspond au type de
     // handler
     // sinon elle passe la commande au handler suivant dans la chaîne

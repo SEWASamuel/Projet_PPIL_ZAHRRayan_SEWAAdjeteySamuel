@@ -9,11 +9,12 @@
 
 #include "src/metier/elements/Vecteur2D.h"
 #include "src/metier/elements/Matrice22.h"
+#include "src/metier/reseau/ClientTCP.h"
 
 using namespace std;
 
 int main() {
-
+    /*
     cout << "===== TEST DES FORMES =====" << endl;
 
     Cercle c(COULEUR_ROUGE, Vecteur2D(10,20), 5);
@@ -70,6 +71,11 @@ int main() {
     g.dessiner();
 
     cout << "Aire groupe = " << g.calculerAire() << endl;
-
+    
+    
+    
+    */
+    
+        ClientTCP::envoyerAuServeur("SEGMENT 10 10 200 200 2", "127.0.0.1", 9111);
     return 0;
 }
