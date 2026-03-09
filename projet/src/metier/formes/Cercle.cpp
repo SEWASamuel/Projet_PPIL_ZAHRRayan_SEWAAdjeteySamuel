@@ -1,5 +1,9 @@
 #include "Cercle.h"
-double PI = 3.14159265358979323846; 
+#include "../reseau/ClientTCP.h"
+#include <sstream>
+
+const double PI = 3.14159265358979323846;
+
 Cercle::Cercle() : Forme() {
     this->centre = Vecteur2D();
     this->rayon = 1;
@@ -20,7 +24,6 @@ const double Cercle::getRayon() const {
     return this->rayon;
 }
 
-
 void Cercle::setCentre(const Vecteur2D vecteur) {
     this->centre = vecteur;
 }
@@ -32,37 +35,33 @@ void Cercle::setCentre(const double x, const double y) {
 void Cercle::setRayon(const double rayon) {
     this->rayon = rayon;
 }
+
 double Cercle::calculerAire() const {
     return PI * rayon * rayon;
 }
 
-Cercle::operator string() const{
+Cercle::operator string() const {
     ostringstream o;
-    
     o << getDebutOSS() << this->centre << ", " << this->rayon << " ]";
-
     return o.str();
 }
 
 void Cercle::dessiner() const {
+    ostringstream oss;
+    oss << "CERCLE "
+        << centre.x << " " << centre.y << " "
+        << rayon << " "
+        << this->couleur;
 
-    cout << "CERCLE "
-     << centre.x << " " << centre.y << " "
-     << rayon << " "
-     << Forme::intToCouleur(this->couleur) << endl;
+    string commande = oss.str();
 
+    cout << commande << endl;
+    ClientTCP::envoyerAuServeur(commande, "127.0.0.1", 9111);
 }
 
-// const string Cercle::accepte(VisiteurForme * v) const {
-//     return v->visite(this);
-// }
-
-ostream & operator <<(ostream & os, const Cercle c){
+ostream & operator <<(ostream & os, const Cercle & c) {
     ostringstream oss;
-
     oss << "Cercle : " << (string)c;
-
     os << oss.str();
-
     return os;
 }
