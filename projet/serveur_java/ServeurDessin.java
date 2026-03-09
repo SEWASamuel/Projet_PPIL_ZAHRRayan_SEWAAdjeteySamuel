@@ -9,7 +9,11 @@ public class ServeurDessin {
     public static void main(String[] args) {
         int port = 9111; // port d'écoute du serveur
 
-        try (ServerSocket serverSocket = new ServerSocket(port)) {
+        try {
+            // initialiser la fenêtre de dessin UNE seule fois
+            Dessin.initialiser();
+
+            ServerSocket serverSocket = new ServerSocket(port);
             System.out.println("Serveur de dessin demarre sur le port " + port);
 
             // le serveur tourne en boucle infinie pour accepter plusieurs clients

@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-
+#include <windows.h>
 #include "src/metier/formes/Cercle.h"
 #include "src/metier/formes/Segment.h"
 #include "src/metier/formes/Triangle.h"
@@ -75,7 +75,19 @@ int main() {
     
     
     */
-    
-        ClientTCP::envoyerAuServeur("SEGMENT 10 10 200 200 2", "127.0.0.1", 9111);
-    return 0;
+    ClientTCP::envoyerAuServeur("SEGMENT 10 10 200 200 2", "127.0.0.1", 9111);
+Sleep(300);
+
+ClientTCP::envoyerAuServeur("CERCLE 300 300 50 2", "127.0.0.1", 9111);
+Sleep(300);
+
+ClientTCP::envoyerAuServeur("TRIANGLE 100 100 200 100 150 200 3", "127.0.0.1", 9111);
+Sleep(300);
+
+ClientTCP::envoyerAuServeur(
+"POLYGONE 5 300 300 350 250 400 300 375 350 325 350 4",
+"127.0.0.1",
+9111);
+
+return 0;
 }
