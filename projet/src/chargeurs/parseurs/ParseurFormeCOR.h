@@ -2,7 +2,7 @@
 #define PARSEUR_FORME_COR
 
 #include "ParseurForme.h"
-#include "../../metier/formes/Forme.h"
+#include "../metier/formes/Forme.h"
 
 #include <stdio.h>
 

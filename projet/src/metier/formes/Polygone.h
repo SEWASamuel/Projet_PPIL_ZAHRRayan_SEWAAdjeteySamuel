@@ -21,9 +21,9 @@ class Polygone : public Forme {
 
     void setPoint(const unsigned int pos, const Vecteur2D point);
 
-    operator string() const override;
-    void dessiner() const override;
-    double calculerAire() const override;
+    operator string() const;
+    void dessiner() const;
+    double calculerAire() const;
 
     const string accepte(const VisiteurForme & v) const;
 };

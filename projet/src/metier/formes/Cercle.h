@@ -22,8 +22,8 @@ class Cercle: public Forme {
     void setRayon(const double rayon);
 
     virtual operator string() const;
-    void dessiner() const override;
-    double calculerAire() const override;
+    void dessiner() const;
+    double calculerAire() const;
     
     const string accepte(const VisiteurForme & v) const;
 };

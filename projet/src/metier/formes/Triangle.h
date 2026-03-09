@@ -29,9 +29,9 @@ class Triangle : public Forme {
     void setPointB(const double x, const double y);
     void setPointC(const double x, const double y);
 
-    operator string() const override;
-    void dessiner() const override;
-    double calculerAire() const override;
+    operator string() const;
+    void dessiner() const;
+    double calculerAire() const;
 
     const string accepte(const VisiteurForme & v) const;
 };
