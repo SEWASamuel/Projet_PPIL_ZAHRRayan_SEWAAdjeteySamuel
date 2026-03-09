@@ -75,7 +75,8 @@ int main() {
     
     
     */
-    ClientTCP::envoyerAuServeur("SEGMENT 10 10 200 200 2", "127.0.0.1", 9111);
+
+    /*ClientTCP::envoyerAuServeur("SEGMENT 10 10 200 200 2", "127.0.0.1", 9111);
 Sleep(300);
 
 ClientTCP::envoyerAuServeur("CERCLE 300 300 50 2", "127.0.0.1", 9111);
@@ -87,7 +88,34 @@ Sleep(300);
 ClientTCP::envoyerAuServeur(
 "POLYGONE 5 300 300 350 250 400 300 375 350 325 350 4",
 "127.0.0.1",
-9111);
+9111); */
+/*  
+    cout << endl;
+cout << "===== TEST FORME COMPOSEE =====" << endl;
 
+Forme_comp g;
+
+g.addForme(new Cercle(COULEUR_ROUGE, Vecteur2D(150,150), 40));
+
+g.addForme(new Triangle(COULEUR_VERT,
+                        Vecteur2D(250,100),
+                        Vecteur2D(320,100),
+                        Vecteur2D(280,180)));
+
+vector<Vecteur2D> pts;
+pts.push_back(Vecteur2D(400,100));
+pts.push_back(Vecteur2D(500,100));
+pts.push_back(Vecteur2D(500,200));
+pts.push_back(Vecteur2D(400,200));
+
+g.addForme(new Polygone(COULEUR_JAUNE, pts));
+
+cout << (string)g << endl;
+
+g.dessiner();
+
+cout << "Aire groupe = " << g.calculerAire() << endl;
+
+*/
 return 0;
 }
