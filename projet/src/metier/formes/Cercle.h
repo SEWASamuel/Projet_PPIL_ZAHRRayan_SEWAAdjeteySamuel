@@ -25,6 +25,7 @@ class Cercle: public Forme {
     void dessiner() const override;
     double calculerAire() const override;
     
+    const string accepte(const VisiteurForme & v) const;
 };
 
 ostream & operator <<(ostream & os, const Cercle c);

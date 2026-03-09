@@ -23,6 +23,8 @@ class Segment: public Forme {
 
     void dessiner() const override;
     double calculerAire() const override;
+
+    const string accepte(const VisiteurForme & v) const;
 };
 
 ostream & operator <<(ostream & os, const Segment s);

@@ -32,6 +32,8 @@ class Triangle : public Forme {
     operator string() const override;
     void dessiner() const override;
     double calculerAire() const override;
+
+    const string accepte(const VisiteurForme & v) const;
 };
 
 ostream & operator <<(ostream & os, const Triangle & t);

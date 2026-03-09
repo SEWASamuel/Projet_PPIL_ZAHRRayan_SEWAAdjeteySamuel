@@ -54,6 +54,10 @@ double Polygone::calculerAire() const {
     return abs(aire) / 2.0;
 }
 
+const string Polygone::accepte(const VisiteurForme & v) const {
+    v.visite(this);
+}
+
 Polygone::operator string() const {
     ostringstream o;
 

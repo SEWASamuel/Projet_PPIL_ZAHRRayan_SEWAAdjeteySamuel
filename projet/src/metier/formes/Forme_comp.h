@@ -22,6 +22,8 @@ public:
     void dessiner() const override;
     double calculerAire() const override;
     operator string() const override;
+
+    const string accepte(const VisiteurForme & v) const;
 };
 
 #endif
