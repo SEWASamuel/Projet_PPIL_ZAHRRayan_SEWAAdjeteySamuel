@@ -19,7 +19,7 @@ class Segment: public Forme {
     void setExremites(const Matrice22 vecteur);
     void setExtremites(const Vecteur2D a, const Vecteur2D b);
 
-    virtual operator string() const;
+    /* virtual */ operator string() const;
 
     void dessiner() const;
     double calculerAire() const;

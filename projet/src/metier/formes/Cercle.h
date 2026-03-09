@@ -21,7 +21,7 @@ class Cercle: public Forme {
     void setCentre(const double x, const double y);
     void setRayon(const double rayon);
 
-    virtual operator string() const;
+    /* virtual */ operator string() const;
     void dessiner() const;
     double calculerAire() const;
     

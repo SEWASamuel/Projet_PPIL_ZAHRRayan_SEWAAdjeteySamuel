@@ -39,7 +39,7 @@ public:
     static const char * intToCouleur(const int couleur);
     const char * getCouleurString() const;
     const string getDebutOSS() const;
-    virtual ~Forme();
+    //virtual ~Forme() = 0;
     virtual operator string() const = 0;
     virtual void dessiner() const = 0;
     virtual double calculerAire() const = 0;

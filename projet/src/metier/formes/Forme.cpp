@@ -34,8 +34,8 @@ void Forme::setType(const string nomType){
     this->type = nomType;
 }
 
-Forme::~Forme() {
-}
+// Forme::~Forme() {
+// }
 
 const char* Forme::intToCouleur(const int codeCouleur){
     switch (codeCouleur)
