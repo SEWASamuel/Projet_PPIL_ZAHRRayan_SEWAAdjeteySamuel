@@ -77,7 +77,7 @@ Polygone::operator string() const {
     return o.str();
 }
 
-ostream & operator <<(ostream & os, const Polygone & p) {
+ostream & operator <<(ostream & os, const Polygone p) {
     os << "Polygone : " << (string)p;
     return os;
 }
