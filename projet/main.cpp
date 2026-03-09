@@ -72,11 +72,11 @@ int main() {
 
     cout << "Aire groupe = " << g.calculerAire() << endl;
     
-    
-    
     */
+    
+    
 
-    /*ClientTCP::envoyerAuServeur("SEGMENT 10 10 200 200 2", "127.0.0.1", 9111);
+    ClientTCP::envoyerAuServeur("SEGMENT 10 10 200 200 2", "127.0.0.1", 9111);
 Sleep(300);
 
 ClientTCP::envoyerAuServeur("CERCLE 300 300 50 2", "127.0.0.1", 9111);
@@ -88,7 +88,7 @@ Sleep(300);
 ClientTCP::envoyerAuServeur(
 "POLYGONE 5 300 300 350 250 400 300 375 350 325 350 4",
 "127.0.0.1",
-9111); */
+9111); 
 /*  
     cout << endl;
 cout << "===== TEST FORME COMPOSEE =====" << endl;
