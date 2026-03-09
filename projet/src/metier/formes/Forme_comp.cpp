@@ -92,3 +92,7 @@ Forme_comp::operator string() const {
 
     return o.str();
 }
+
+const string Forme_comp::accepte(const VisiteurForme & v) const {
+    v.visite(this);
+}

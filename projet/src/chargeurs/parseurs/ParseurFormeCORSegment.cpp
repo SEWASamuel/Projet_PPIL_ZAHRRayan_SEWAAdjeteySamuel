@@ -3,11 +3,12 @@
 ParseurFormeCORSegment::ParseurFormeCORSegment(ParseurFormeCOR * suivant) : ParseurFormeCOR(suivant) {}
 
 Forme * ParseurFormeCORSegment::parse1(const char * ligne) const {
-    char * id = "(%d, %d) (%d, %d)";
+    //char * id = "(%d, %d) (%d, %d)";
     int x1, y1, x2, y2;
     int nbValRetour;
 
-    nbValRetour = sscanf(ligne, id, &x1, &y1, &x2, &y2);
+    //nbValRetour = sscanf(ligne, id, &x1, &y1, &x2, &y2);
+    nbValRetour = sscanf(ligne, "(%d, %d) (%d, %d)", &x1, &y1, &x2, &y2);
 
     if(nbValRetour != 4){
         return NULL;

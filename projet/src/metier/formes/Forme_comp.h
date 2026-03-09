@@ -19,9 +19,11 @@ public:
     Forme* getForme(int index) const;
     int getNbFormes() const;
     
-    void dessiner() const override;
-    double calculerAire() const override;
-    operator string() const override;
+    void dessiner() const;
+    double calculerAire() const;
+    operator string() const;
+
+    const string accepte(const VisiteurForme & v) const;
 };
 
 #endif

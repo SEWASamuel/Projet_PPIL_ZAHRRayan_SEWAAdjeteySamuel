@@ -80,6 +80,10 @@ void Triangle::dessiner() const {
      << Forme::intToCouleur(this->couleur) << endl;
 }
 
+const string Triangle::accepte(const VisiteurForme & v) const {
+    v.visite(this);
+}
+
 ostream & operator <<(ostream & os, const Triangle & t) {
     os << "Triangle : " << (string)t;
     return os;

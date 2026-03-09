@@ -14,6 +14,9 @@
 #include "../exceptions/Erreur.h"
 #include "../elements/Vecteur2D.h"
 
+#include "../../sauvegarde/VisiteurForme.h"
+#include "../../sauvegarde/FormatTXT.h"
+
 using namespace std;
 
 class Forme {
@@ -34,11 +37,14 @@ public:
     void setType(const string nomType);
 
     static const char * intToCouleur(const int couleur);
+    const char * getCouleurString() const;
     const string getDebutOSS() const;
     virtual ~Forme();
     virtual operator string() const = 0;
     virtual void dessiner() const = 0;
     virtual double calculerAire() const = 0;
+    
+    virtual const string accepte(const VisiteurForme & v) const = 0;
 };
 
 ostream & operator <<(ostream & os, const Forme * f);

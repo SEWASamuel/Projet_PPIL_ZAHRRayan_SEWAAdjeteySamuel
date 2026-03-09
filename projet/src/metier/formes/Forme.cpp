@@ -57,6 +57,10 @@ const char* Forme::intToCouleur(const int codeCouleur){
     }
 }
 
+const char * Forme::getCouleurString() const {
+    return intToCouleur(this->couleur);
+}
+
 const string Forme::getDebutOSS() const {
     ostringstream o;
     o << "[ " << Forme::intToCouleur(this->couleur) << ", ";
