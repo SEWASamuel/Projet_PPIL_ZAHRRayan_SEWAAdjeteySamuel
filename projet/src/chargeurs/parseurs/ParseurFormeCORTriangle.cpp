@@ -1,3 +1,7 @@
+/**
+ * @file ParseurFormeCORTriangle.cpp
+ * @brief Definition de la fonction "parse1"
+ */
 #include "ParseurFormeCORTriangle.h"
 
 ParseurFormeCORTriangle::ParseurFormeCORTriangle(ParseurFormeCOR * suivant) : ParseurFormeCOR(suivant) {}

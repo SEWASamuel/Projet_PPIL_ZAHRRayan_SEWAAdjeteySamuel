@@ -1,3 +1,7 @@
+/**
+ * @file Cercle.h
+ * @brief Definition de la classe Cercle qui dérive de la classe Forme
+ */
 #ifndef CERCLE
 #define CERCLE
 

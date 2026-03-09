@@ -1,3 +1,7 @@
+/**
+ * @file TransPolygone.h
+ * @brief Definition des fonctions de la classe TransPolygone
+ */
 #include "TransPolygone.h"
 
 TransPolygone::TransPolygone() : Transformateur(NULL, "polygone") {}

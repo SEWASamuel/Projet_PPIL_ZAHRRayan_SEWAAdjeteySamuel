@@ -1,3 +1,7 @@
+/**
+ * @file ChargeurListeFormes.cpp
+ * @brief Definition le la fonction "charge" de la classe ChargeurListeFormes.
+ */
 #include "ChargeurListeFormes.h"
 
 #define LONGUEUR_LIGNE 100

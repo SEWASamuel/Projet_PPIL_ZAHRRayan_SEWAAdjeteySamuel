@@ -1,3 +1,8 @@
+/**
+ * @file TransformationTranslation.h
+ * @brief Definition de la classe TransformationTranslation.\n
+ * Elle contient vecteur de déplacement, qui sert à opérer une translation.
+ */
 #ifndef TRANSFORMATION_TRANSLATION
 #define TRANSFORMATION_TRANSLATION
 

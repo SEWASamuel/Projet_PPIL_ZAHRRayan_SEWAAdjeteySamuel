@@ -1,6 +1,7 @@
-//
-// Created by samue on 19/01/2026.
-//
+/**
+ * @file Erreur.cpp
+ * @brief Definition des fonctions de la classe Erreur
+ */
 
 #include "Erreur.h"
 #include <stdio.h>

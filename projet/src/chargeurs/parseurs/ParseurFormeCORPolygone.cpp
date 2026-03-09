@@ -1,3 +1,7 @@
+/**
+ * @file ParseurFormeCORPolygone.cpp
+ * @brief Definition de la fonction "parse1"
+ */
 #include "ParseurFormeCORPolygone.h"
 #include <vector>
 #include <string.h>

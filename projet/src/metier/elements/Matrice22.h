@@ -1,3 +1,8 @@
+/**
+ * @file Matrice22.h
+ * @brief Definition de la Classe Matrice22 qui elle m$eme est composée de 2 instances de la classe Vecteur2D\n
+ * Elle sert aussi à la création et manipulation des formes
+ */
 #ifndef MATRICE22_H
 #define MATRICE22_H
 

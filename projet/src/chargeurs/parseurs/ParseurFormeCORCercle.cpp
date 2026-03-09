@@ -1,3 +1,7 @@
+/**
+ * @file ParseurFormeCORCercle.cpp
+ * @brief Definition de la fonction "parse1"
+ */
 #include "ParseurFormeCORCercle.h"
 
 ParseurFormeCORCercle::ParseurFormeCORCercle(ParseurFormeCOR * suivant) : ParseurFormeCOR(suivant) {}

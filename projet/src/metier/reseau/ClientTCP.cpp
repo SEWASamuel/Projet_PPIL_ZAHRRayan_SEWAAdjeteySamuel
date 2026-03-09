@@ -1,3 +1,7 @@
+/**
+ * @file ClientTCP.cpp
+ * @brief Definition de la fonction de la classe ClientTCP
+ */
 #include "ClientTCP.h"
 #include <iostream>
 #include <string>

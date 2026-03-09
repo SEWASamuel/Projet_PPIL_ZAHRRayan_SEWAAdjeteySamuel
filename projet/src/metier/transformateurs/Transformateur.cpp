@@ -1,3 +1,7 @@
+/**
+ * @file Transformateur.cpp
+ * @brief Definition des fonctions de la classe Transformateur
+ */
 #include "Transformateur.h"
 
 Transformateur::Transformateur(){}

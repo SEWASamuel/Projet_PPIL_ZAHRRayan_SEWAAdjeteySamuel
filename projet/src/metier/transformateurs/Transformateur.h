@@ -1,5 +1,6 @@
 /**
- * Classe abtstraite représentant un noeud de la chaine de responsabilité servant aux diverses transformations
+ * @file Transformateur.h
+ * @brief Definition de la classe abstraite Transformateur qui servira pour chaque maillon de la chaine de responsabilité
  */
 
 #ifndef TRANSFORMATEUR

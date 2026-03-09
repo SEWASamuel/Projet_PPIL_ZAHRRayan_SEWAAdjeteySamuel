@@ -1,3 +1,7 @@
+/**
+ * @file ClientTCP.h
+ * @brief Définition de la classe ClientTCP qui nous servira à envoyer un message au serveur de dessin
+ */
 #ifndef CLIENTTCP_H
 #define CLIENTTCP_H
 

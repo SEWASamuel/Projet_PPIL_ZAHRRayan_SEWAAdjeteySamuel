@@ -1,3 +1,7 @@
+/**
+ * @file Forme_comp.h
+ * @brief Definition de la classe Forme_comp qui hérite de la classe Formes et qui elle même peut contenir plusieurs formes
+ */
 #ifndef FORME_COMP_H
 #define FORME_COMP_H
 

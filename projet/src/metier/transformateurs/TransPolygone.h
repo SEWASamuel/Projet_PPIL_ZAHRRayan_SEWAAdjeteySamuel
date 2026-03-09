@@ -1,3 +1,8 @@
+/**
+ * @file TransPolygone.h
+ * @brief Definition de la classe TransPolygone qui représente un maillon de la chaine de responsabilité pour la transformation de formes.
+ * Ce maillon traite un polygone.
+ */
 #ifndef TRANS_POLYGONE
 #define TRANS_POLYGONE
 

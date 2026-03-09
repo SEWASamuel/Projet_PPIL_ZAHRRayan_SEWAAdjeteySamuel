@@ -1,3 +1,7 @@
+/**
+ * @file Forme.h
+ * @brief Defition de la classe abstraite Forme
+ */
 #ifndef FORME
 #define FORME
 
@@ -18,6 +22,9 @@
 
 using namespace std;
 
+/** 
+ * @brief Definition de la classe abstraite Forme
+ */
 class Forme {
 protected:
     int couleur;

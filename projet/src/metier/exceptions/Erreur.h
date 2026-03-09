@@ -1,6 +1,7 @@
-//
-// Created by samue on 19/01/2026.
-//
+/**
+ * @file Erreur.h
+ * @brief Definition de la classe Erreur qui servira à relever des erreur ou exceptions dans mes programmes
+ */
 
 #ifndef ERREUR_H
 #define ERREUR_H

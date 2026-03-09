@@ -1,3 +1,7 @@
+/**
+ * @file Cercle.cpp
+ * @brief Definition des fonctions de la classe Cercle
+ */
 #include "Cercle.h"
 double PI = 3.14159265358979323846; 
 Cercle::Cercle() : Forme() {

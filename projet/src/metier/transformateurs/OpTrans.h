@@ -1,6 +1,6 @@
 /**
- * Interface pour les transformations sur les formes
- * Ici, on déclare les différentes fonctions qui vont servir aux transformations
+ * @file OpTrans.h
+ * @brief Interface servant à la mise en place d'une chaine de responsabilité pour transformer différentes formes
  */
 
 #ifndef OP_TRANS

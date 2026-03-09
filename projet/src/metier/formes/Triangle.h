@@ -1,3 +1,7 @@
+/**
+ * @file Triangle.h
+ * @brief Definition de la classe Triangle qui herite de la classe Forme 
+ */
 #ifndef TRIANGLE
 #define TRIANGLE
 

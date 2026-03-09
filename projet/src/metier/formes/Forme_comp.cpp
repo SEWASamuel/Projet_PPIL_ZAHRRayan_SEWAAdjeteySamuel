@@ -1,3 +1,7 @@
+/**
+ * @file Forme_comp.cpp
+ * @brief Definition des fonctions de la classe Forme_comp
+ */
 #include "Forme_comp.h"
 #include <iostream>
 #include <sstream>

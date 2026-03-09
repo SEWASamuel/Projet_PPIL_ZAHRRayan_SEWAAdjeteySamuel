@@ -1,3 +1,7 @@
+/**
+ * @file TransCercle.h
+ * @brief Definition des fonctions de la classe TransCercle
+ */
 #include "TransCercle.h"
 
 TransCercle::TransCercle() : Transformateur(NULL, "cercle") {}

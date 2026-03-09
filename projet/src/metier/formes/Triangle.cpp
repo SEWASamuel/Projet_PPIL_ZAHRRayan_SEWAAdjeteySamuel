@@ -1,3 +1,7 @@
+/**
+ * @file Triangle.cpp
+ * @brief Definition des fonctions de la classe Triangle
+ */
 #include "Triangle.h"
 #include <iostream>
 #include <sstream>

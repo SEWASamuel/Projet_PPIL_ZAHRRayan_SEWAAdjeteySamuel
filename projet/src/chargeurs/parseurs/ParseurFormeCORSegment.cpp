@@ -1,3 +1,7 @@
+/**
+ * @file ParseurFormeCORSegment.cpp
+ * @brief Definition de la fonction "parse1"
+ */
 #include "ParseurFormeCORSegment.h"
 
 ParseurFormeCORSegment::ParseurFormeCORSegment(ParseurFormeCOR * suivant) : ParseurFormeCOR(suivant) {}

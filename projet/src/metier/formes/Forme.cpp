@@ -1,3 +1,7 @@
+/**
+ * @file Forme.cpp
+ * @brief Définition des fonctions de la classe Forme
+ */
 #include "Forme.h"
 #include "../exceptions/Erreur.h"
 #include <ostream>

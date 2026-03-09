@@ -1,3 +1,7 @@
+/**
+ * @file TransTriangle.h
+ * @brief Definition des fonctions de la classe TransTriangle
+ */
 #include "Transtriangle.h"
 
 TransTriangle::TransTriangle() : Transformateur(NULL, "triangle") {}

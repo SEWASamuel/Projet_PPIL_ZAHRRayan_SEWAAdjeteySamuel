@@ -1,3 +1,7 @@
+/**
+ * @file Polygone.cpp
+ * @brief Definition des fonctions de la classe polygone
+ */
 #include "Polygone.h"
 #include <iostream>
 #include <sstream>

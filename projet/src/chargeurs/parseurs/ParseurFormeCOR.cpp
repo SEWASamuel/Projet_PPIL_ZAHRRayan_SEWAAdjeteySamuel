@@ -1,3 +1,7 @@
+/**
+ * @file TarseurFormeCOR.cpp
+ * @brief Definition de la fonction "parse" de la classe ParseurFormeCOR
+ */
 #include "ParseurFormeCOR.h"
 
 ParseurFormeCOR::ParseurFormeCOR(ParseurFormeCOR * suivant) : suivant(suivant) {}

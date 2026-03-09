@@ -1,3 +1,8 @@
+/**
+ * @file TransformationHomothetie.h
+ * @brief Definition de la classe TransformationHomothetie.\n
+ * Elle contient un point de centre et un rapport d'échelle, qui serviront à opérer une homothétie.
+ */
 #ifndef TRANSFORMATION_HOMOTHETIE
 #define TRANSFORMATION_HOMOTHETIE
 

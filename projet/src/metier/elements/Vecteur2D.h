@@ -1,3 +1,8 @@
+/**
+ * @file Vecteur2D.h
+ * @brief Definition de la classe Vecteur2D et ses fonctions \n
+ * cette classe sert à créer des formes et les manipuler 
+ */
 #ifndef VECTEUR2D
 #define VECTEUR2D
 

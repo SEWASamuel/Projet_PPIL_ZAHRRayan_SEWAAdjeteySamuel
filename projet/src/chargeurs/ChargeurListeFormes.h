@@ -1,3 +1,7 @@
+/**
+ * @file ChargeurListeFormes.h
+ * @brief Classe interface servant à charger des formes à partir d'un fichier
+ */
 #ifndef CHARGEUR_LISTE_FORMES
 #define CHARGEUR_LISTE_FORMES
 

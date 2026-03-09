@@ -1,3 +1,7 @@
+/**
+ * @file Segment.h
+ * @brief Definition de la classe Segment qui hérite de la classe Forme
+ */
 #ifndef SEGMENT
 #define SEGMENT
 

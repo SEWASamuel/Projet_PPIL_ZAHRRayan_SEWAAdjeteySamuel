@@ -1,3 +1,7 @@
+/**
+ * @file ParseurFormeCOR.h
+ * @brief Definition de la classe abstraite ParseurFormeCOR qui représente un maillon de la chaine de responsabilité servant à la lecture de différentes forme.
+ */
 #ifndef PARSEUR_FORME_COR
 #define PARSEUR_FORME_COR
 

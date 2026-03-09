@@ -1,3 +1,7 @@
+/**
+ * @file Transformation.h
+ * @brief Definition de la classe abstraite Transformation qui sert à représenter une transformation pour une forme.
+ */
 #ifndef TRANSFORMATION
 #define TRANSFORMATION
 

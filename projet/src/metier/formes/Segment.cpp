@@ -1,3 +1,7 @@
+/**
+ * @file Segment.cpp
+ * @brief definition des fonctions de la classe Segment
+ */
 #include "Segment.h"
 
 Segment::Segment(): Forme(){

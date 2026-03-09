@@ -1,3 +1,7 @@
+/**
+ * @file TransSegment.h
+ * @brief Definition des fonctions de la classe TransSegment
+ */
 #include "TransSegment.h"
 
 TransSegment::TransSegment() : Transformateur(NULL, "segment") {}

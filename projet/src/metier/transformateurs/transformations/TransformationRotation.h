@@ -1,3 +1,8 @@
+/**
+ * @file TransformationRotation.h
+ * @brief Definition de la classe TransformationHRotation.\n
+ * Elle contient un point invariant et un angle(en radians), qui serviront à opérer une rotation.
+ */
 #ifndef TRANSFORMATION_ROTATION
 #define TRANSFORMATION_ROTATION
 
