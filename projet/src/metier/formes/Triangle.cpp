@@ -84,7 +84,7 @@ void Triangle::dessiner() const {
 //     return v->visite(this);
 // }
 
-ostream & operator <<(ostream & os, const Triangle & t) {
+ostream & operator <<(ostream & os, const Triangle t) {
     os << "Triangle : " << (string)t;
     return os;
 }
