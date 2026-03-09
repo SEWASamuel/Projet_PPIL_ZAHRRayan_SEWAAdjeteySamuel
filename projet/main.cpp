@@ -14,7 +14,7 @@
 using namespace std;
 
 int main() {
-    /*
+    
     cout << "===== TEST DES FORMES =====" << endl;
 
     Cercle c(COULEUR_ROUGE, Vecteur2D(10,20), 5);
@@ -72,9 +72,9 @@ int main() {
 
     cout << "Aire groupe = " << g.calculerAire() << endl;
     
-    */
     
     
+    /* /
 
     ClientTCP::envoyerAuServeur("SEGMENT 10 10 200 200 2", "127.0.0.1", 9111);
 Sleep(300);
