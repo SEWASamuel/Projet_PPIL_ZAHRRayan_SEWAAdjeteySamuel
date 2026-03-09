@@ -22,6 +22,9 @@ class Cercle: public Forme {
     void setRayon(const double rayon);
 
     virtual operator string() const;
+    void dessiner() const override;
+    double calculerAire() const override;
+    
 };
 
 ostream & operator <<(ostream & os, const Cercle c);

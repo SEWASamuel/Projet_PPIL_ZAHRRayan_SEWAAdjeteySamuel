@@ -20,6 +20,9 @@ class Segment: public Forme {
     void setExtremites(const Vecteur2D a, const Vecteur2D b);
 
     virtual operator string() const;
+
+    void dessiner() const override;
+    double calculerAire() const override;
 };
 
 ostream & operator <<(ostream & os, const Segment s);

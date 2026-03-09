@@ -1,5 +1,6 @@
 #include "Forme_comp.h"
 #include <iostream>
+#include <sstream>
 #include "../exceptions/Erreur.h"
 
 using namespace std;
@@ -17,7 +18,6 @@ Forme_comp::Forme_comp(int couleur) : Forme(couleur) {
 /******************** DESTRUCTEUR ********************/
 
 Forme_comp::~Forme_comp() {
-    // libération de la mémoire des formes stockées
     for (Forme* f : formes) {
         delete f;
     }
@@ -34,7 +34,6 @@ void Forme_comp::addForme(Forme* forme) {
 }
 
 void Forme_comp::delForme(int index) {
-
     if (index < 0 || index >= (int)formes.size()) {
         throw Erreur("index invalide");
     }
@@ -44,7 +43,6 @@ void Forme_comp::delForme(int index) {
 }
 
 Forme* Forme_comp::getForme(int index) const {
-
     if (index < 0 || index >= (int)formes.size()) {
         throw Erreur("index invalide");
     }
@@ -56,21 +54,17 @@ int Forme_comp::getNbFormes() const {
     return (int)formes.size();
 }
 
-/******************** AFFICHAGE ********************/
+/******************** DESSIN ********************/
 
-void Forme_comp::afficher() const {
-
-    cout << "Forme composee (" << formes.size() << " formes)" << endl;
-
+void Forme_comp::dessiner() const {
     for (Forme* f : formes) {
-        f->afficher();
+        f->dessiner();
     }
 }
 
 /******************** CALCUL AIRE ********************/
 
 double Forme_comp::calculerAire() const {
-
     double aireTotal = 0.0;
 
     for (Forme* f : formes) {
@@ -78,4 +72,23 @@ double Forme_comp::calculerAire() const {
     }
 
     return aireTotal;
+}
+
+/******************** CONVERSION STRING ********************/
+
+Forme_comp::operator string() const {
+    ostringstream o;
+
+    o << getDebutOSS();
+
+    for (int i = 0; i < (int)formes.size(); i++) {
+        o << (string)(*formes[i]);
+        if (i < (int)formes.size() - 1) {
+            o << ", ";
+        }
+    }
+
+    o << " ]";
+
+    return o.str();
 }

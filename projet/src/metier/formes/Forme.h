@@ -16,12 +16,12 @@
 
 using namespace std;
 
-class Forme{
-    protected:
+class Forme {
+protected:
     int couleur;
-    string type = "Forme"; // cet attribut est à initialiser différemment dans les consrtucteure de chaque forme
+    string type = "Forme";
 
-    public:
+public:
     /******************** CONSTRUCTEURS ********************/
     Forme();
     Forme(int codeCouleur);
@@ -35,8 +35,12 @@ class Forme{
 
     static const char * intToCouleur(const int couleur);
     const string getDebutOSS() const;
+    virtual ~Forme();
     virtual operator string() const = 0;
+    virtual void dessiner() const = 0;
+    virtual double calculerAire() const = 0;
 };
-ostream & operator <<(ostream os, const Forme * f);
+
+ostream & operator <<(ostream & os, const Forme * f);
 
 #endif

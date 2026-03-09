@@ -3,8 +3,10 @@
 
 #include "Forme.h"
 #include "../elements/Vecteur2D.h"
+#include <ostream>
 
-class Triangle: public Forme {
+class Triangle : public Forme {
+    private:
     Vecteur2D pointA;
     Vecteur2D pointB;
     Vecteur2D pointC;
@@ -27,8 +29,11 @@ class Triangle: public Forme {
     void setPointB(const double x, const double y);
     void setPointC(const double x, const double y);
 
-    virtual operator string() const;
+    operator string() const override;
+    void dessiner() const override;
+    double calculerAire() const override;
 };
 
-ostream & operator <<(ostream & os, const Triangle t);
+ostream & operator <<(ostream & os, const Triangle & t);
+
 #endif

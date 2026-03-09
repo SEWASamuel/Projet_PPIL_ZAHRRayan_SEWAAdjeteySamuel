@@ -14,7 +14,7 @@ public class TestClient {
                 Socket socket = new Socket(adresseServeur, portServeur);
                 // Ça crée un flux de sortie pour envoyer des données au serveur
                 PrintStream out = new PrintStream(socket.getOutputStream())) {
-            String message = "CERCLE 100 200 50 RED";
+            String message = "POLYGONE 4 10 20 30 40 50 60 70 80 RED";
 
             System.out.println("Envoi du message : " + message);
             // Ça envoie le message au serveur

@@ -1,5 +1,5 @@
 #include "Cercle.h"
-
+double PI = 3.14159265358979323846; 
 Cercle::Cercle() : Forme() {
     this->centre = Vecteur2D();
     this->rayon = 1;
@@ -32,6 +32,9 @@ void Cercle::setCentre(const double x, const double y) {
 void Cercle::setRayon(const double rayon) {
     this->rayon = rayon;
 }
+double Cercle::calculerAire() const {
+    return PI * rayon * rayon;
+}
 
 Cercle::operator string() const{
     ostringstream o;
@@ -39,6 +42,15 @@ Cercle::operator string() const{
     o << getDebutOSS() << this->centre << ", " << this->rayon << " ]";
 
     return o.str();
+}
+
+void Cercle::dessiner() const {
+
+    cout << "CERCLE "
+     << centre.x << " " << centre.y << " "
+     << rayon << " "
+     << Forme::intToCouleur(this->couleur) << endl;
+
 }
 
 ostream & operator <<(ostream & os, const Cercle c){
