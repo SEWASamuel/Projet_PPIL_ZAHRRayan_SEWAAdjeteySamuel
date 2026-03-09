@@ -21,10 +21,10 @@ int main(void){
 
     FormatTXT fTexte;
 
-    cout << "Segment TXT : " << s.accepte(fTexte) << endl;
-    cout << "Cercle TXT : " << c.accepte(fTexte) << endl;
-    cout << "Triangle TXT : " << t.accepte(fTexte) << endl;
-    cout << "Polygone TXT : " << p.accepte(fTexte) << endl;
+    cout << "Segment TXT : " << s.accepte(&fTexte) << endl;
+    cout << "Cercle TXT : " << c.accepte(&fTexte) << endl;
+    cout << "Triangle TXT : " << t.accepte(&fTexte) << endl;
+    cout << "Polygone TXT : " << p.accepte(&fTexte) << endl;
 
     return 0;
 }

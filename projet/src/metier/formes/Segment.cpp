@@ -41,8 +41,8 @@ double Segment::calculerAire() const {
     return 0;
 }
 
-const string Segment::accepte(const VisiteurForme & v) const {
-    v.visite(this);
+const string Segment::accepte(VisiteurForme * v) const {
+    return v->visite(this);
 }
 
 ostream & operator <<(ostream & os, const Segment s){

@@ -53,8 +53,8 @@ void Cercle::dessiner() const {
 
 }
 
-const string Cercle::accepte(const VisiteurForme & v) const {
-    v.visite(this);
+const string Cercle::accepte(VisiteurForme * v) const {
+    return v->visite(this);
 }
 
 ostream & operator <<(ostream & os, const Cercle c){

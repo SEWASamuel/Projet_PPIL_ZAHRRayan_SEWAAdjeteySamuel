@@ -23,7 +23,7 @@ public:
     double calculerAire() const;
     operator string() const;
 
-    const string accepte(const VisiteurForme & v) const;
+    const string accepte(VisiteurForme * v) const;
 };
 
 #endif
