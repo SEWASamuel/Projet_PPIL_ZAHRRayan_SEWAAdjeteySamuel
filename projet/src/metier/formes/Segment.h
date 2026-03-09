@@ -24,7 +24,7 @@ class Segment: public Forme {
     void dessiner() const;
     double calculerAire() const;
 
-    const string accepte(VisiteurForme * v) const;
+    //const string accepte(VisiteurForme * v) const;
 };
 
 ostream & operator <<(ostream & os, const Segment s);

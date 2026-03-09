@@ -93,6 +93,6 @@ Forme_comp::operator string() const {
     return o.str();
 }
 
-const string Forme_comp::accepte(VisiteurForme * v) const {
-    return v->visite(this);
-}
+// const string Forme_comp::accepte(VisiteurForme * v) const {
+//     return v->visite(this);
+// }
