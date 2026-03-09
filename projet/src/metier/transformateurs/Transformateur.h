@@ -35,7 +35,7 @@ class Transformateur : public OpTrans{
 
     const bool memeType(Forme * f) const;
 
-    Forme * transforme(Forme & forme, const Transformation transformation) const;
+    Forme * transforme(Forme & forme, const Transformation * transformation) const;
 
     // virtual Forme & transforme(Forme & forme, const TransformationTranslation t);
     // virtual Forme & transforme(Forme & forme, const TransformationHomothetie t);

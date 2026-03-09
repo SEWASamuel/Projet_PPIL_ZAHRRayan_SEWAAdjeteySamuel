@@ -2,6 +2,7 @@
 #define TRANS_POLYGONE
 
 #include "Transformateur.h"
+#include "../formes/Polygone.h"
 
 class TransPolygone : public Transformateur {
 

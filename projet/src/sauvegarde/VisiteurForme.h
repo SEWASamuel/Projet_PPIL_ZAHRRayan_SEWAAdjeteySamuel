@@ -1,14 +1,12 @@
 #ifndef VISITEUR_FORME
 #define VISITEUR_FORME
 
-#include <string>
-
-class Forme;
-class Segment;
-class Cercle;
-class Triangle;
-class Polygone;
-class Forme_comp;
+#include "../metier/formes/Forme.h"
+#include "../metier/formes/Segment.h"
+#include "../metier/formes/Cercle.h"
+#include "../metier/formes/Triangle.h"
+#include "../metier/formes/Polygone.h"
+#include "../metier/formes/Forme_comp.h" 
 
 class VisiteurForme {
     public:

@@ -12,7 +12,7 @@
 class OpTrans {
     public:
     /******************** METHODES ********************/
-    virtual Forme * transforme(Forme & forme, const Transformation transformation) const = 0;
+    virtual Forme * transforme(Forme & forme, const Transformation * transformation) const = 0;
 };
 
 #endif
