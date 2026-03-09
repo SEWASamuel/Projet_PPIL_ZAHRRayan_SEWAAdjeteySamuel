@@ -19,10 +19,10 @@ public class CercleHandler extends Handler {
             String[] parties = commande.split(" ");
 
             // récupérer les paramètres
-            int x = Integer.parseInt(parties[1]);
-            int y = Integer.parseInt(parties[2]);
-            int rayon = Integer.parseInt(parties[3]);
-            String couleur = parties[4];
+            double x = Double.parseDouble(parties[1]);
+            double y = Double.parseDouble(parties[2]);
+            double rayon = Double.parseDouble(parties[3]);
+            String couleur = convertirCouleur(parties[4]);
 
             // afficher les informations
             System.out.println("Centre X : " + x);

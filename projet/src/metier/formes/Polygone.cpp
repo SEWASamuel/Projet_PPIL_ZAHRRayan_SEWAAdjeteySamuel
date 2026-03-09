@@ -1,6 +1,11 @@
 #include "Polygone.h"
+#include <iostream>
+#include <sstream>
+#include <cmath>
 
-Polygone::Polygone() : Forme(), points(vector<Vecteur2D>()){
+using namespace std;
+
+Polygone::Polygone() : Forme(), points(vector<Vecteur2D>()) {
     this->type = "polygone";
 }
 
@@ -13,13 +18,40 @@ const vector<Vecteur2D> Polygone::getPoints() const {
 }
 
 const Vecteur2D Polygone::getPoint(const unsigned int pos) const {
-    if(pos < 0 || pos > this->points.size()) throw Erreur("indice de vecteur de points invalide (getPoint)");
+    if (pos < 0 || pos >= (int)this->points.size()) {
+        throw Erreur("indice de vecteur de points invalide (getPoint)");
+    }
     return this->points.at(pos);
 }
 
-void Polygone::setPoint(const unsigned int pos, const Vecteur2D point){
-    if(pos < 0 || pos < this->points.size()) throw Erreur("indice de vecteur de points invalide (setPoint)");
+void Polygone::setPoint(const unsigned int pos, const Vecteur2D point) {
+    if (pos < 0 || pos >= (int)this->points.size()) {
+        throw Erreur("indice de vecteur de points invalide (setPoint)");
+    }
     this->points[pos] = point;
+}
+
+void Polygone::dessiner() const {
+    cout << "POLYGONE " << points.size() << " ";
+
+    for (int i = 0; i < (int)points.size(); i++) {
+        cout << points[i].x << " " << points[i].y << " ";
+    }
+
+   cout << Forme::intToCouleur(this->couleur) << endl;
+}
+
+double Polygone::calculerAire() const {
+    double aire = 0;
+    int n = (int)points.size();
+
+    for (int i = 0; i < n; i++) {
+        int j = (i + 1) % n;
+        aire += points[i].x * points[j].y;
+        aire -= points[j].x * points[i].y;
+    }
+
+    return abs(aire) / 2.0;
 }
 
 Polygone::operator string() const {
@@ -27,11 +59,13 @@ Polygone::operator string() const {
 
     o << getDebutOSS();
 
-    int taille = this->points.size();
+    int taille = (int)this->points.size();
 
-    for(int i=0 ; i<taille ; i++){
+    for (int i = 0; i < taille; i++) {
         o << this->points.at(i);
-        if(i < taille-1) o << ", ";
+        if (i < taille - 1) {
+            o << ", ";
+        }
     }
 
     o << " ]";
@@ -39,12 +73,7 @@ Polygone::operator string() const {
     return o.str();
 }
 
-ostream & operator <<(ostream & os, const Polygone p){
-    ostringstream oss;
-
-    oss << "Polygone : " << (string) p;
-    
-    os << oss.str();
-
+ostream & operator <<(ostream & os, const Polygone & p) {
+    os << "Polygone : " << (string)p;
     return os;
 }

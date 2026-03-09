@@ -1,39 +1,45 @@
 package projet.serveur_java;
 
-// Cette classe est un handler pour les segments, elle va traiter les messages liés aux segments envoyés par les clients
 public class SegmentHandler extends Handler {
 
-    // constructeur : recoit le handler suivant dans la chaîne de responsabilité
     public SegmentHandler(Handler suivant) {
         super(suivant);
     }
 
     @Override
     public boolean traiter(String commande) {
-
-        // ici on va vérifier si la commande concerne un segment,
-        // par exemple si elle commence par "SEGMENT"
         if (commande.startsWith("SEGMENT")) {
-
             System.out.println("SegmentHandler : commande reconnue");
             System.out.println("Commande segment = " + commande);
 
-            // ici plus tard on pourra dessiner le segment
+            try {
+                System.out.println("Avant split");
 
-            return true; // indiquer que la commande a été traitée
+                String[] parties = commande.split(" ");
 
-        } else {
+                System.out.println("Apres split");
 
-            // sinon, passer la commande au handler suivant dans la chaîne
-            if (suivant != null) {
-                return suivant.traiter(commande);
-            } else {
+                int x1 = (int) Double.parseDouble(parties[1]);
+                int y1 = (int) Double.parseDouble(parties[2]);
+                int x2 = (int) Double.parseDouble(parties[3]);
+                int y2 = (int) Double.parseDouble(parties[4]);
+                int couleur = Integer.parseInt(parties[5]);
 
-                // fin de la chaîne, aucun handler n'a pu traiter la commande
-                System.out.println("Aucun handler disponible pour traiter la commande : " + commande);
+                System.out.println("Avant appel Dessin");
+                Dessin.dessinerSegment(x1, y1, x2, y2, couleur);
+                System.out.println("Apres appel Dessin");
 
-                return false; // indiquer que la commande n'a pas été traitée
+                return true;
+            } catch (Exception e) {
+                System.out.println("Erreur dans SegmentHandler");
+                e.printStackTrace();
+                return false;
             }
         }
+
+        if (suivant != null) {
+            return suivant.traiter(commande);
+        }
+        return false;
     }
 }

@@ -3,10 +3,11 @@
 
 #include "Forme.h"
 #include "../elements/Vecteur2D.h"
-
 #include <vector>
+#include <ostream>
 
-class Polygone: public Forme {
+class Polygone : public Forme {
+    private:
     vector<Vecteur2D> points;
 
     public:
@@ -20,7 +21,9 @@ class Polygone: public Forme {
 
     void setPoint(const unsigned int pos, const Vecteur2D point);
 
-    virtual operator string() const;
+    operator string() const override;
+    void dessiner() const override;
+    double calculerAire() const override;
 };
 
 ostream & operator <<(ostream & os, const Polygone p);

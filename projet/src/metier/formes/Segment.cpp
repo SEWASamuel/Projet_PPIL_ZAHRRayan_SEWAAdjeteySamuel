@@ -31,6 +31,15 @@ Segment::operator string() const {
     return o.str();
 }
 
+void Segment::dessiner() const {
+    cout << "SEGMENT "
+         << extremites.ligneHaut.x << " " << extremites.ligneHaut.y << " "
+         << extremites.ligneBas.x << " " << extremites.ligneBas.y << " "
+         << Forme::intToCouleur(this->couleur) << endl;
+}
+double Segment::calculerAire() const {
+    return 0;
+}
 ostream & operator <<(ostream & os, const Segment s){
 
     ostringstream oss;
