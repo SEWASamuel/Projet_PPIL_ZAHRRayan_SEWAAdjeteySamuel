@@ -21,11 +21,11 @@ class Cercle: public Forme {
     void setCentre(const double x, const double y);
     void setRayon(const double rayon);
 
-    virtual operator string() const;
+    /* virtual */ operator string() const;
     void dessiner() const;
     double calculerAire() const;
     
-    const string accepte(const VisiteurForme & v) const;
+    const string accepte(VisiteurForme * v) const;
 };
 
 ostream & operator <<(ostream & os, const Cercle c);

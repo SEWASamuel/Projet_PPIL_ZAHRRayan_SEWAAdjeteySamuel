@@ -3,7 +3,7 @@
 
 #include "Forme.h"
 #include "../elements/Vecteur2D.h"
-#include "../elements/Matrice22.h" 
+#include "../elements/Matrice22.h"
 
 class Segment: public Forme {
     Matrice22 extremites;
@@ -19,12 +19,12 @@ class Segment: public Forme {
     void setExremites(const Matrice22 vecteur);
     void setExtremites(const Vecteur2D a, const Vecteur2D b);
 
-    virtual operator string() const;
+    /* virtual */ operator string() const;
 
     void dessiner() const;
     double calculerAire() const;
 
-    const string accepte(const VisiteurForme & v) const;
+    const string accepte(VisiteurForme * v) const;
 };
 
 ostream & operator <<(ostream & os, const Segment s);
