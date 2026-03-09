@@ -7,7 +7,7 @@
 
 class ChargeurListeFormes {
     public:
-    static const vector<Forme> charge(FILE * fichier, ParseurForme * parseur);
+    static const vector<Forme*> charge(FILE * fichier, ParseurForme * parseur);
 };
 
 #endif

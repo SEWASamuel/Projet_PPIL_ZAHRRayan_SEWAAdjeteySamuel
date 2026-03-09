@@ -12,12 +12,12 @@ const vector<Vecteur2D> Polygone::getPoints() const {
     return this->points;
 }
 
-const Vecteur2D Polygone::getPoint(const int pos) const {
+const Vecteur2D Polygone::getPoint(const unsigned int pos) const {
     if(pos < 0 || pos > this->points.size()) throw Erreur("indice de vecteur de points invalide (getPoint)");
     return this->points.at(pos);
 }
 
-void Polygone::setPoint(const int pos, const Vecteur2D point){
+void Polygone::setPoint(const unsigned int pos, const Vecteur2D point){
     if(pos < 0 || pos < this->points.size()) throw Erreur("indice de vecteur de points invalide (setPoint)");
     this->points[pos] = point;
 }

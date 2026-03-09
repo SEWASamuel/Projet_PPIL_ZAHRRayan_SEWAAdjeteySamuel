@@ -16,12 +16,12 @@ class Polygone: public Forme {
 
     /******************** METHODES ********************/
     const vector<Vecteur2D> getPoints() const;
-    const Vecteur2D getPoint(const int pos) const;
+    const Vecteur2D getPoint(const unsigned int pos) const;
 
-    void setPoint(const int pos, const Vecteur2D point);
+    void setPoint(const unsigned int pos, const Vecteur2D point);
 
     virtual operator string() const;
 };
 
-ostream & operator <<(ostream & os, const Polygone t);
+ostream & operator <<(ostream & os, const Polygone p);
 #endif
