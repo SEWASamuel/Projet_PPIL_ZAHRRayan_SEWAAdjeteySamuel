@@ -8,56 +8,52 @@ const string pointToString(const Vecteur2D & point){
     return oss.str();
 }
 
-const string FormatTXT::visite(const Segment * s) const {
-    Segment sAux = *s;
+const string FormatTXT::visite(const Segment & s) const {
     ostringstream oss;
 
-    oss << sAux.getCouleurString() << " ";
+    //oss << s.getCouleurString() << " ";
 
-    oss << pointToString(sAux.getExtremites().ligneHaut);
-    oss << " " << pointToString(sAux.getExtremites().ligneBas);
+    oss << pointToString(s.getExtremites().ligneHaut);
+    oss << " " << pointToString(s.getExtremites().ligneBas);
 
     return oss.str();
 }
 
-const string FormatTXT::visite(const Cercle * c) const {
-    Cercle cAux = *c;
+const string FormatTXT::visite(const Cercle & c) const {
     ostringstream oss;
 
-    oss << cAux.getCouleurString() << " ";
+    //oss << c.getCouleurString() << " ";
 
-    oss << cAux.getCentre();
-    oss << " " << cAux.getRayon();
+    oss << c.getCentre();
+    oss << " " << c.getRayon();
 
     return oss.str();
 }
 
-const string FormatTXT::visite(const Triangle * t) const {
-    Triangle tAux = *t;
+const string FormatTXT::visite(const Triangle & t) const {
     ostringstream oss;
 
-    oss << tAux.getCouleurString() << " ";
+    //oss << t.getCouleurString() << " ";
 
-    oss << pointToString(tAux.getPointA());
+    oss << pointToString(t.getPointA());
     oss << " | ";
-    oss << pointToString(tAux.getPointB());
+    oss << pointToString(t.getPointB());
     oss << " | ";
-    oss << pointToString(tAux.getPointC());
+    oss << pointToString(t.getPointC());
 
     return oss.str();
 }
 
-const string FormatTXT::visite(const Polygone * p) const {
-    Polygone pAux = *p;
+const string FormatTXT::visite(const Polygone & p) const {
     ostringstream oss;
-    int taille = pAux.getPoints().size();
+    int taille = p.getPoints().size();
 
-    oss << pAux.getCouleurString() << " ";
+    //oss << p.getCouleurString() << " ";
 
     oss << "[";
 
     for(int i ; i<taille ; i++){
-        oss << pointToString(pAux.getPoints()[i]);
+        oss << pointToString(p.getPoints()[i]);
         if(i < taille - 1) oss << " ";
     }
 
@@ -66,9 +62,8 @@ const string FormatTXT::visite(const Polygone * p) const {
     return oss.str();
 }
 
-const string FormatTXT::visite(const Forme_comp * fc) const {
-    Forme_comp fcAux = *fc;
+const string FormatTXT::visite(const Forme_comp & fc) const {
     // TODO
     char *message = "Visiteur \"FormatTXT\" pour Forme_comp a implementer";
-    return string(message);
+    return message;
 }

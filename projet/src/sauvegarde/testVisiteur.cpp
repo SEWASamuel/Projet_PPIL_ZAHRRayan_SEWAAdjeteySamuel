@@ -1,5 +1,6 @@
 #include "VisiteurForme.h"
 #include "FormatTXT.cpp"
+#include "SauvForme.h"
 
 #include "../metier/formes/Forme.cpp"
 #include "../metier/formes/Segment.cpp"
@@ -7,6 +8,8 @@
 #include "../metier/formes/Triangle.cpp"
 #include "../metier/formes/Polygone.cpp"
 #include "../metier/formes/Forme_comp.cpp"
+
+#include "../metier/exceptions/Erreur.cpp"
 
 int main(void){
     Segment s(COULEUR_BLEU, Matrice22(Vecteur2D(1, 1), Vecteur2D(2, 2)));
@@ -19,12 +22,18 @@ int main(void){
     points.push_back(Vecteur2D(6, -2)); 
     Polygone p(COULEUR_ROUGE, points);
 
+
+    SauvSegment ss(s);
+    SauvCercle sc(c);
+    SauvTriangle st(t);
+    SauvPolygone sp(p);
+
     FormatTXT fTexte;
 
-    cout << "Segment TXT : " << s.accepte(&fTexte) << endl;
-    cout << "Cercle TXT : " << c.accepte(&fTexte) << endl;
-    cout << "Triangle TXT : " << t.accepte(&fTexte) << endl;
-    cout << "Polygone TXT : " << p.accepte(&fTexte) << endl;
+    cout << "Segment TXT : " << ss.accepte(fTexte) << endl;
+    cout << "Cercle TXT : " << sc.accepte(fTexte) << endl;
+    cout << "Triangle TXT : " << st.accepte(fTexte) << endl;
+    cout << "Polygone TXT : " << sp.accepte(fTexte) << endl;
 
     return 0;
 }
