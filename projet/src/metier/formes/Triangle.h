@@ -36,6 +36,6 @@ class Triangle : public Forme {
     //const string accepte(VisiteurForme * v) const;
 };
 
-ostream & operator <<(ostream & os, const Triangle * t);
+ostream & operator <<(ostream & os, const Triangle t);
 
 #endif
